@@ -84,7 +84,7 @@ function All(){
             <div>Pva Glue</div>
             
                 </div>
-            <div className="product_image" id="for-desk"><img src={paints} width={"100%"} alt="" /></div>
+            <div className="product_image" id="for-desk"><img src={adhs} width={"100%"} alt="" /></div>
         </div>  
         </>
         <> {/* textile chems  */}
@@ -214,17 +214,7 @@ function All(){
                 </div>
         </div>  
         </>
-        <div className="about_mobile">
-                <img src={logo2}height={"60px"} alt="" />
-                <p style={{color:"gray", width:"85%",textAlign:"center",marginTop:14}}>Empowering industries worldwide, Berk Ýigitler pioneers innovative chemical solutions. With a commitment to excellence, we drive progress and sustainability. Join us in shaping a brighter future through chemistry.</p>
-                <div className="divider"></div>
-                <p style={{color:"coral"}}>GMAIL</p>
-                <p style={{color:"gray", width:"85%",textAlign:"center"}}>emailofcompany@gmail.com</p>
-                <p style={{color:"#216FB4", marginTop:"20px"}}>PHONE</p>
-                <a href="tel:+99361471919"> <p style={{color:"gray", width:"85%",textAlign:"center"}}>+99361471919</p></a>
-                <p style={{color:"#E93E3A", marginTop:"20px"}}>ADRESS</p>
-                <p style={{color:"gray", width:"85%",textAlign:"center", marginBottom:"10px"}}>Akhal, Gokdepe Region, Block 11/6</p>
-            </div>
+        
         </>
     );
 }
