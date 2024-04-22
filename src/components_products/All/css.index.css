@@ -1,0 +1,28 @@
+.all_wrapper{
+    display: flex;
+    justify-self: center;
+    justify-content: space-between;
+    width: 90%;
+    @media (max-width: 768px) {
+        flex-direction: column;
+      } 
+}
+.all_wrapper > div{
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.2);
+    padding: 13px 10px 13px 10px;
+    border-radius: 10px;
+}
+#for-mobile{
+    display: none;
+}
+@media (max-width: 768px) {
+    #for-mobile{
+        display: block;
+    }
+    #for-desk{
+        display: none;
+    }
+  } 
+    

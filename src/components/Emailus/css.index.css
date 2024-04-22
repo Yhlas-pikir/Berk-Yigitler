@@ -1,0 +1,83 @@
+.email{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.email > div{
+    font-size: 19px;
+    font-weight: bold;
+}
+.emailus_wrapper{
+    display: flex;
+    gap: 20px;
+    width: 97%;
+margin-top: 30px;
+
+@media (max-width: 768px) {
+    flex-direction: column;
+  } 
+}
+.emailus_image{
+    position: relative;
+    @media (max-width: 768px) {
+        display: none;
+      } 
+}
+.dividerE{
+    margin-top: 13px;
+    margin-bottom: 13px;
+    width: 20%;
+    height: 1px;
+    background-color: gray;
+}
+.des_txt{
+    color: #1c1c1c;
+}
+.form{
+    width: 48vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        width: 100vw;
+        align-self: center;
+      } 
+}
+.input_place{
+    padding: 0px 20px 0px 20px;
+    width: 80%;
+    height: 40px;
+    border-radius: 8px;
+    border: #009a4e 2px solid;
+    font-size: 18px;
+}
+.input_place::placeholder{
+    font-size: 18px;
+}
+.text_area{
+    padding: 0px 20px 0px 20px;
+    width: 80%;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: #009a4e 2px solid;
+    font-size: 18px;
+}
+.text_area::placeholder{
+    font-size: 18px;
+
+}
+.submit_button{
+    background-color: #009a4e;
+    border-radius: 15px;
+    padding: 15px 20px 15px 20px;
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+}
+.email{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

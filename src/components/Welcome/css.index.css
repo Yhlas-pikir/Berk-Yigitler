@@ -1,0 +1,68 @@
+.welcome_wrapper{
+    display: flex;
+    width: 94vw;
+    padding: 40px;
+    gap: 20px;
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        overflow: hidden;
+        margin-bottom: 20px;
+      } 
+}
+.welcome_image{
+    width: 49vw;
+    position: relative;
+    @media (max-width: 768px) {
+        width: 100vw;
+        align-self: center;
+      } 
+}
+.welcome_text{
+    width: 49vw;
+    align-self: center;
+     @media (max-width: 768px) {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+      } 
+}
+.welcomTo{
+    color: #009A4E;
+    line-height:0.8;
+    margin-bottom:13px;
+    font-size:37px;
+    @media (max-width: 768px) {
+        font-size: 27px;
+        align-self: center;
+     } 
+}
+.berkyigitler{
+    color: #009A4E;
+    line-height:1;
+    margin-top: 30;
+    font-size:66px;
+    @media (max-width: 768px) {
+        font-size: 56px;
+        align-self: center;
+     } 
+}
+.dividerW{
+    margin-bottom: 20px;
+    width: 20%;
+    height: 1px;
+    background-color: gray;
+    @media (max-width: 768px) {
+        align-self: center;
+      } 
+}
+.des_txt{
+    width: 75%;
+    color: #1c1c1c; 
+    @media (max-width: 768px) {
+        align-self: center;
+        text-align: center;
+      } 
+}
