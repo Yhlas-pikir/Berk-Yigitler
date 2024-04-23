@@ -3,6 +3,16 @@ import "./css.index.css";
 import config from "../../config.json";
 
 function Emailus({ data }) {
+  const SendMail = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+
+    fetch(`https://jankoyer.com.tm/api/1.0//mail`, {
+      method: "POST",
+      body: data,
+    });
+  };
+
   return (
     <div className="emailus_wrapper">
       <div className="emailus_image">
@@ -14,30 +24,34 @@ function Emailus({ data }) {
       </div>
       <div className="email">
         <div>r.meredov@inbox.ru</div>
-        <form method="POST" class="form" data-form-title="Form Name">
+        <form class="form" data-form-title="Form Name" onSubmit={SendMail}>
           <input
             type="text"
             className="input_place"
-            name="Name"
+            name="username"
             placeholder="Your Name"
           />
           <div className="dividerE"></div>
           <input
             type="text"
             className="input_place"
-            name="Name"
+            name="email"
             placeholder="Your Email"
           />
           <div className="dividerE"></div>
           <input
-            type="text"
+            type="phone"
             className="input_place"
-            name="Name"
+            name="phone"
             placeholder="Phone Number"
           />
           <div className="dividerE"></div>
-          <textarea className="text_area" placeholder="Your message"></textarea>
-          <div class="submit_button_div">
+          <textarea
+            className="text_area"
+            name="text"
+            placeholder="Your message"
+          ></textarea>
+          <div className="submit_button_div">
             <button type="submit" class="submit_button">
               Send Message
             </button>
