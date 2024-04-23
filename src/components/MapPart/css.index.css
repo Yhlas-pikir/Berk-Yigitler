@@ -56,20 +56,3 @@
 .des_txt{
     color: #1c1c1c;
 }
-.about_mobile {
-    display: none;
-} 
-@media (max-width:768px) {
-.about_mobile{
-    padding: 14px;
-    margin-top: 20px;
-    background-color: #1c1c1c;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
-
-        display: flex;
-    
-}}
