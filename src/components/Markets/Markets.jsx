@@ -10,7 +10,7 @@ import back_clean from "../../assets/images/clean.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import config from "../../config.json";
-function Markets() {
+function Markets({ dataChange }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
@@ -47,18 +47,11 @@ function Markets() {
               fontSize: "37px",
             }}
           >
-            OUR MARKETS
+            {dataChange && dataChange.name}
           </p>
           <div className="divider1"></div>
           <p style={{ color: "#fff" }}>
-            At Berk Ýigitler we cater to a diverse range of industries and
-            sectors worldwide. From household and personal care products to
-            industrial manufacturing and water treatment, our innovative
-            chemical solutions are tailored to meet the unique needs of each
-            market we serve. With a commitment to quality, sustainability, and
-            customer satisfaction, we continuously strive to deliver
-            cutting-edge products and services that drive success for our
-            clients across the globe.
+            {dataChange && dataChange.description}
           </p>
         </div>
       </div>

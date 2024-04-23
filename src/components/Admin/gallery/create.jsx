@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import server from "../../../config.json";
+import config from "../../../config.json";
 
 const Create = () => {
   const redirect = useNavigate();
@@ -10,7 +10,7 @@ const Create = () => {
 
     const data = new FormData(e.target);
 
-    fetch(`${server.serverIP}:${server.serverPort}/category`, {
+    fetch(`${config.serverIP}:${config.serverPort}/gallery`, {
       method: "POST",
       body: data,
     })
@@ -19,7 +19,7 @@ const Create = () => {
       })
       .then((response) => {
         console.log(response);
-        redirect("/admin/category");
+        redirect("/admin/gallery");
       })
       .catch((err) => {
         console.log(err);
@@ -37,7 +37,7 @@ const Create = () => {
             <input type="text" id="fname" name="name" />
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-25">
             <label htmlFor="subject">Description</label>
           </div>
@@ -48,27 +48,16 @@ const Create = () => {
               style={{ height: "200px" }}
             ></textarea>
           </div>
-        </div>
+        </div> */}
         <div className="row">
           <div className="col-25">
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-          <input type="file" id="limage" name="image" accept="" />
+            <input type="file" id="limage" multiple name="image" accept="" />
           </div>
         </div>
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="country">
-              <option value="australia">Australia</option>
-              <option value="canada">Canada</option>
-              <option value="usa">USA</option>
-            </select>
-          </div>
-        </div>
+        {/* 
         <div className="row">
           <div className="col-25">
             <label htmlFor="subject">Subject</label>
@@ -80,6 +69,18 @@ const Create = () => {
               placeholder="Write something.."
               style={{ height: "200px" }}
             ></textarea>
+          </div>
+        </div> */}
+        {/* <div className="row">
+          <div className="col-25">
+            <label htmlFor="country">Country</label>
+          </div>
+          <div className="col-75">
+            <select id="country" name="categoryId">
+              {data.map((d) => (
+                <option value={d.id}>{d.name}</option>
+              ))}
+            </select>
           </div>
         </div> */}
         <br />

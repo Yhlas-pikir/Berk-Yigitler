@@ -7,7 +7,7 @@ const List = () => {
   const redirect = useNavigate();
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/product?main=true`, {
+    fetch(`${config.serverIP}:${config.serverPort}/gallery`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -24,26 +24,31 @@ const List = () => {
 
   return (
     <div>
-      <Link to={"/admin/product/create"}>Create</Link>
+      <Link to={"/admin/gallery/create"}>Create</Link>
       <table id="customers">
         <tbody>
           <tr>
             {!!data &&
               !!data[0] &&
-              Object.keys(data[0]).map((key) => {
-                if (key !== "categoryId") {
-                  return <th>{key}</th>;
-                }
-              })}
+              Object.keys(data[0]).map((key) => <th>{key}</th>)}
             <th></th>
           </tr>
           {!!data &&
             data.map((row) => (
               <tr>
                 {Object.keys(row).map((col) => {
-                  if (col === "category") {
-                    return <td>{row[col] && row[col].name}</td>;
-                  } else if (col === "categoryId") {
+                  if (col === "galleries") {
+                    return (
+                      <td style={{ overflow: "auto" }}>
+                        {row[col].map((value) => (
+                          <img
+                            height={"60px"}
+                            src={`${config.serverIP}:${config.serverPort}/${value.image}`}
+                            alt=""
+                          />
+                        ))}
+                      </td>
+                    );
                   } else {
                     return <td>{row[col]}</td>;
                   }
@@ -52,7 +57,7 @@ const List = () => {
                   <button
                     onClick={() => {
                       fetch(
-                        `${config.serverIP}:${config.serverPort}/product/${row.id}`,
+                        `${config.serverIP}:${config.serverPort}/gallery/${row.id}`,
                         {
                           method: "DELETE",
                         }
@@ -66,7 +71,7 @@ const List = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      redirect(`/admin/product/${row.id}`);
+                      redirect(`/admin/gallery/${row.id}`);
                     }}
                   >
                     Edit

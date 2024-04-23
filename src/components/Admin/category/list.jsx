@@ -22,8 +22,6 @@ const List = () => {
     GetData();
   }, []);
 
-
-
   return (
     <div>
       <Link to={"/admin/category/create"}>Create</Link>
@@ -38,9 +36,21 @@ const List = () => {
           {!!data &&
             data.map((row) => (
               <tr>
-                {Object.keys(row).map((col) => (
-                  <td>{row[col]}</td>
-                ))}
+                {Object.keys(row).map((col) => {
+                  if (col === "image") {
+                    return (
+                      <td>
+                        <img
+                          height={"60px"}
+                          src={`${config.serverIP}:${config.serverPort}/${row[col]}`}
+                          alt=""
+                        />
+                      </td>
+                    );
+                  } else {
+                    return <td>{row[col]}</td>;
+                  }
+                })}
                 <td style={{ cursor: "pointer" }}>
                   <button
                     onClick={() => {
