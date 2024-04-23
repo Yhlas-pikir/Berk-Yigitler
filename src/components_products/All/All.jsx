@@ -1,223 +1,126 @@
-
+import { useNavigate } from "react-router-dom";
 import adhs from "../../assets/images/adhesives.jpg";
-import logo2 from "../../assets/images/logo2.png"
+import logo2 from "../../assets/images/logo2.png";
 import "./css.index.css";
-import React, { useRef } from 'react';
-function All(){ 
-    
-    const adhvs = useRef(null);
-    const paints = useRef(null);
-    const texChem = useRef(null);
-    const epox = useRef(null);
-    const syndye = useRef(null);
-    const laund = useRef(null);
-    const enzyme = useRef(null);
-    
+import config from "../../config.json";
 
-    const scrollToDivAD = () => adhvs.current.scrollIntoView({ behavior: 'smooth' });
-    const scrollToDivPA = () => paints.current.scrollIntoView({ behavior: 'smooth' });
-    const scrollToDivTX = () => texChem.current.scrollIntoView({ behavior: 'smooth' });
-    const scrollToDivEP = () => epox.current.scrollIntoView({ behavior: 'smooth' });
-    const scrollToDivSD = () => syndye.current.scrollIntoView({ behavior: 'smooth' });
-    const scrollToDivLC = () => laund.current.scrollIntoView({ behavior: 'smooth' });
-    const scrollToDivEN = () => enzyme.current.scrollIntoView({ behavior: 'smooth' });
-    return(
-        <>
-        <div ref={adhvs} style={{display:"flex", justifyContent:"center",alignItems:"center",marginTop:20,padding:10,backgroundColor: "#f8f8f8"}}>
+import React, { useEffect, useRef, useState } from "react";
+function All() {
+  const [data, SetData] = useState([]);
+  const redirect = useNavigate();
+
+  const GetData = () => {
+    fetch(`${config.serverIP}:${config.serverPort}/category?all=true`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        const temp = [];
+        console.log(position);
+        response.forEach((data, index) => {
+          position.current[index] = null;
+          temp.push({
+            ref: index,
+            scrollToDiv: () =>
+              position.current[index].current.scrollIntoView({
+                behavior: "smooth",
+              }),
+            ...data,
+          });
+        });
+        SetData(temp);
+      });
+  };
+
+  useEffect(() => {
+    GetData();
+  }, []);
+
+  console.log(data);
+
+  const position = useRef([]);
+
+  const adhvs = useRef(null);
+  const paints = useRef(null);
+  const texChem = useRef(null);
+  const epox = useRef(null);
+  const syndye = useRef(null);
+  const laund = useRef(null);
+  const enzyme = useRef(null);
+
+  const scrollToDivAD = () =>
+    adhvs.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToDivPA = () =>
+    paints.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToDivTX = () =>
+    texChem.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToDivEP = () =>
+    epox.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToDivSD = () =>
+    syndye.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToDivLC = () =>
+    laund.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToDivEN = () =>
+    enzyme.current.scrollIntoView({ behavior: "smooth" });
+  return (
+    <>
+      <div
+        ref={adhvs}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 20,
+          padding: 10,
+          backgroundColor: "#f8f8f8",
+        }}
+      >
         <div className="all_wrapper">
-           <div onClick={scrollToDivAD} >ADHESIVES</div>
-           <div onClick={scrollToDivPA} >BOYALAR</div>
-           <div onClick={scrollToDivTX} >TEXTILE CHEMICALS</div>
-           <div onClick={scrollToDivEP} >EPOXY</div>
-           <div onClick={scrollToDivSD} >SYNTHETIC DYES</div>
-           <div onClick={scrollToDivLC} >Laundry & Cleaning Additives</div>
-           <div onClick={scrollToDivEN} >ENZYMES</div>
-            
-        </div>  
+          {data.map((d, i) => (
+            <div onClick={() => position.current[d.ref]}>{d.name}</div>
+          ))}
         </div>
-        <> {/* adhesives  */}
-        <p style={{textAlign:"center", fontSize:40,marginTop:20,fontWeight:"bold"}}>ADHESIVES</p>
-        <div className="product_wrapper">
-            <div className="product_image"><img src={adhs} width={"100%"} alt="" /></div>
-           <div className="product_about">
-            <div>Strene Acrylic(hard)</div>
-            <div>Strene Acrylic(medium)</div>
-            <div>Strene Acrylic(soft)</div>
-            <div>Printing Binder (Vamli)</div>
-            <div>Printing Binder (Stren)</div>
-            <div>Cellophane Glue (automatic)</div>
-            <div>Cellophane Glue (regular)</div>
-            <div>Carpet Glue (Homopolymer)</div>
-            <div>Carpet Glue (Copolymer)</div>
-            <div>Carpet Latex</div>
-            <div>Skeleton Glue</div>
-            <div>Solid Glue</div>
-            <div ref={paints}>with parquet holder</div>
-            <div >Coil Glue</div>
-            <div>Ear Glue</div>
-            <div>Pva Glue</div>
-            
-                </div>
-        </div>  
+      </div>
+      {data.map((d, index) => (
+        <>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: 40,
+              marginTop: 20,
+              fontWeight: "bold",
+            }}
+          >
+            {d.name}
+          </p>
+          <div
+            className="product_wrapper"
+            style={
+              index % 2 == 1
+                ? { flexDirection: "row-reverse" }
+                : { flexDirection: "row" }
+            }
+          >
+            <div className="product_image">
+              <img
+                src={`${config.serverIP}:${config.serverPort}/${d.image}`}
+                width={"100%"}
+                alt=""
+              />
+            </div>
+            <div className="product_about">
+              {d.products.map((product) => (
+                <div>{product.name}</div>
+              ))}
+              <div ref={position.current[d.ref]}></div>
+            </div>
+          </div>
         </>
-        <>  {/* paints  */} 
-        <p style={{textAlign:"center", fontSize:40,marginTop:20,fontWeight:"bold"}}>BOYALAR</p>
-        
-        <div className="product_wrapper">
-            <div className="product_image" id="for-mobile"><img src={adhs} width={"100%"} alt="" /></div>
-           <div className="product_about">
-            <div>Strene Acrylic(hard)</div>
-            <div>Strene Acrylic(medium)</div>
-            <div>Strene Acrylic(soft)</div>
-            <div>Printing Binder (Vamli)</div>
-            <div>Printing Binder (Stren)</div>
-            <div>Cellophane Glue (automatic)</div>
-            <div>Cellophane Glue (regular)</div>
-            <div>Carpet Glue (Homopolymer)</div>
-            <div>Carpet Glue (Copolymer)</div>
-            <div>Carpet Latex</div>
-            <div>Skeleton Glue</div>
-            <div>Solid Glue</div>
-            <div ref={texChem}>with parquet holder</div>
-            <div>Coil Glue</div>
-            <div>Ear Glue</div>
-            <div>Pva Glue</div>
-            
-                </div>
-            <div className="product_image" id="for-desk"><img src={adhs} width={"100%"} alt="" /></div>
-        </div>  
-        </>
-        <> {/* textile chems  */}
-        <p style={{textAlign:"center", fontSize:40,marginTop:20,fontWeight:"bold"}}>TEXTILE CHEMICALS</p>
-        <div  className="product_wrapper">
-            <div className="product_image"><img src={adhs} width={"100%"} alt="" /></div>
-           <div className="product_about">
-            <div>Strene Acrylic(hard)</div>
-            <div>Strene Acrylic(medium)</div>
-            <div>Strene Acrylic(soft)</div>
-            <div>Printing Binder (Vamli)</div>
-            <div>Printing Binder (Stren)</div>
-            <div>Cellophane Glue (automatic)</div>
-            <div>Cellophane Glue (regular)</div>
-            <div>Carpet Glue (Homopolymer)</div>
-            <div>Carpet Glue (Copolymer)</div>
-            <div>Carpet Latex</div>
-            <div>Skeleton Glue</div>
-            <div>Solid Glue</div>
-            <div ref={epox} >with parquet holder</div>
-            <div>Coil Glue</div>
-            <div>Ear Glue</div>
-            <div>Pva Glue</div>
-            
-                </div>
-        </div>  
-        </>
-        <>  {/* epoxy */}
-        <p style={{textAlign:"center", fontSize:40,marginTop:20,fontWeight:"bold"}}>EPOXY</p>
-        <div className="product_wrapper">
-            <div className="product_image" id="for-mobile"><img src={adhs} width={"100%"} alt="" /></div>
-           <div className="product_about">
-            <div>Strene Acrylic(hard)</div>
-            <div>Strene Acrylic(medium)</div>
-            <div>Strene Acrylic(soft)</div>
-            <div>Printing Binder (Vamli)</div>
-            <div>Printing Binder (Stren)</div>
-            <div>Cellophane Glue (automatic)</div>
-            <div>Cellophane Glue (regular)</div>
-            <div>Carpet Glue (Homopolymer)</div>
-            <div>Carpet Glue (Copolymer)</div>
-            <div>Carpet Latex</div>
-            <div>Skeleton Glue</div>
-            <div>Solid Glue</div>
-            <div ref={syndye}>with parquet holder</div>
-            <div>Coil Glue</div>
-            <div>Ear Glue</div>
-            <div>Pva Glue</div>
-            
-                </div>
-            <div className="product_image" id="for-desk"><img src={adhs} width={"100%"} alt="" /></div>
-        </div>  
-        </>
-        <>  {/* synthetic dyes */}
-        <p style={{textAlign:"center", fontSize:40,marginTop:20,fontWeight:"bold"}}>SYNTHETIC DYES</p>
-        <div className="product_wrapper">
-            <div className="product_image"><img src={adhs} width={"100%"} alt="" /></div>
-           <div className="product_about">
-            <div>Strene Acrylic(hard)</div>
-            <div>Strene Acrylic(medium)</div>
-            <div>Strene Acrylic(soft)</div>
-            <div>Printing Binder (Vamli)</div>
-            <div>Printing Binder (Stren)</div>
-            <div>Cellophane Glue (automatic)</div>
-            <div>Cellophane Glue (regular)</div>
-            <div>Carpet Glue (Homopolymer)</div>
-            <div>Carpet Glue (Copolymer)</div>
-            <div>Carpet Latex</div>
-            <div>Skeleton Glue</div>
-            <div>Solid Glue</div>
-            <div ref={laund}>with parquet holder</div>
-            <div>Coil Glue</div>
-            <div>Ear Glue</div>
-            <div>Pva Glue</div>
-            
-                </div>
-        </div>  
-        </>
-        <>{/* clean  */}
-        <p style={{textAlign:"center", fontSize:40,marginTop:20,fontWeight:"bold"}}>Laundry &amp; Cleaning Additives</p>
-        <div className="product_wrapper">
-            <div className="product_image" id="for-mobile"><img src={adhs} width={"100%"} alt="" /></div>
-           <div className="product_about">
-            <div>Strene Acrylic(hard)</div>
-            <div>Strene Acrylic(medium)</div>
-            <div>Strene Acrylic(soft)</div>
-            <div>Printing Binder (Vamli)</div>
-            <div>Printing Binder (Stren)</div>
-            <div>Cellophane Glue (automatic)</div>
-            <div>Cellophane Glue (regular)</div>
-            <div>Carpet Glue (Homopolymer)</div>
-            <div>Carpet Glue (Copolymer)</div>
-            <div>Carpet Latex</div>
-            <div>Skeleton Glue</div>
-            <div>Solid Glue</div>
-            <div ref={enzyme}>with parquet holder</div>
-            <div>Coil Glue</div>
-            <div>Ear Glue</div>
-            <div>Pva Glue</div>
-            
-                </div>
-            <div className="product_image" id="for-desk"><img src={adhs} width={"100%"} alt="" /></div>
-        </div>  
-        </>
-        <> {/* Enzyme */}
-        <p style={{textAlign:"center", fontSize:40,marginTop:20,fontWeight:"bold"}}>ENZYMES</p>
-        <div className="product_wrapper">
-            <div className="product_image"><img src={adhs} width={"100%"} alt="" /></div>
-           <div className="product_about">
-            <div>Strene Acrylic(hard)</div>
-            <div>Strene Acrylic(medium)</div>
-            <div>Strene Acrylic(soft)</div>
-            <div>Printing Binder (Vamli)</div>
-            <div>Printing Binder (Stren)</div>
-            <div>Cellophane Glue (automatic)</div>
-            <div>Cellophane Glue (regular)</div>
-            <div>Carpet Glue (Homopolymer)</div>
-            <div>Carpet Glue (Copolymer)</div>
-            <div>Carpet Latex</div>
-            <div>Skeleton Glue</div>
-            <div>Solid Glue</div>
-            <div>with parquet holder</div>
-            <div>Coil Glue</div>
-            <div>Ear Glue</div>
-            <div>Pva Glue</div>
-            
-                </div>
-        </div>  
-        </>
-        
-        </>
-    );
+      ))}
+    </>
+  );
 }
 
-
-export default All
+export default All;
