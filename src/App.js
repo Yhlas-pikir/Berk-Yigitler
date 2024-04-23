@@ -11,6 +11,12 @@ import ProductCreate from "./components/Admin/products/create";
 import ProductList from "./components/Admin/products/list";
 import ProductEdit from "./components/Admin/products/edit";
 
+import GalleryCreate from "./components/Admin/gallery/create";
+import GalleryList from "./components/Admin/gallery/list";
+import GalleryEdit from "./components/Admin/gallery/edit";
+
+import AdminMainList from "./components/Admin/main/main.jsx";
+
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +25,12 @@ function App() {
         <Route path="/products" element={<ProductPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/admin" element={<AdminPage />}>
-          <Route index element={<div>main</div>} />
+          {/* <Route path="/" index element={<AdminMainList />} /> */}
+          <Route path="main">
+            <Route index element={<AdminMainList />} />
+            <Route path="create" element={<CategoryCreate />} />
+            <Route path=":id" element={<CategoryEdit />} />
+          </Route>
           <Route path="category">
             <Route index element={<CategoryList />} />
             <Route path="create" element={<CategoryCreate />} />
@@ -30,7 +41,11 @@ function App() {
             <Route path="create" element={<ProductCreate />} />
             <Route path=":id" element={<ProductEdit />} />
           </Route>
-          <Route path="gallery" element={<div>gallery</div>} />
+          <Route path="gallery">
+            <Route index element={<GalleryList />} />
+            <Route path="create" element={<GalleryCreate />} />
+            <Route path=":id" element={<GalleryEdit />} />
+          </Route>
           {/* <Route path="language">
             <Route index element={<LangList />} />
             <Route path="create" element={<LangCreate />} />

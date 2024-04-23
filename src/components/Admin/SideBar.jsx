@@ -6,7 +6,7 @@ const SideBar = () => {
   const sidebarList = [
     {
       name: "main",
-      link: "/admin",
+      link: "/admin/main",
     },
     {
       name: "category",
