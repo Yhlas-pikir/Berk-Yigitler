@@ -32,7 +32,7 @@ function Homepage() {
   }, []);
   console.log(data);
   return (
-    <div>
+    <div style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>
       <Navbar />
       <SwiperWel />
       <Welcome data={data.welcome} />
