@@ -1,7 +1,8 @@
 .welcome_wrapper{
     display: flex;
+    justify-content: center;
     width: 100vw;
-    padding: 40px;
+    padding: 40px 0px 40px 0px;
     gap: 20px;
     @media (max-width: 768px) {
         display: flex;
@@ -24,7 +25,7 @@
     height: 365px;
 }
 .welcome_text{
-    width: 49vw;
+    width: 46vw;
     align-self: center;
      @media (max-width: 768px) {
         width: 100vw;

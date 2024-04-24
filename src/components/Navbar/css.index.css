@@ -49,6 +49,11 @@
       font-size: 15px;
     }
   }
+  @media (max-width: 768px) {
+    .option:hover::after {
+      width: 0%;
+    }
+  }
   .underlined::after{
     background: linear-gradient(to right, #1A9B94 0%, #F5EA32 33%, #F38C21 66%, #AE4E6F 100%); /* Adjust as needed */
     border-radius: 2px;

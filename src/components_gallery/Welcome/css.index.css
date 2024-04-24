@@ -33,9 +33,10 @@
     gap: 50px;
       } 
 }
-.welcome_wrapper_desk, .welcome_wrapper_mobile > h1,h2{
+.welcome_wrapper_desk, .welcome_wrapper_mobile > div > h1,h2{
     text-align: center;
     @media (max-width: 768px) {
+        text-align: center;
         margin-top: 20px;
         margin-bottom: 20px;
       } 
