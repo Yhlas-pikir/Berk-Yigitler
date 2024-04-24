@@ -5,11 +5,20 @@ import config from "../../config.json";
 function Emailus({ data }) {
   const SendMail = (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
 
-    fetch(`https://jankoyer.com.tm/api/1.0//mail`, {
+    const formData = new FormData(e.target);
+
+    let data = {};
+    formData.forEach((value, key) => (data[key] = value));
+
+    console.log(data);
+
+    fetch(`${config.serverIP}:${config.serverPort}/mail`, {
       method: "POST",
-      body: data,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     });
   };
 
