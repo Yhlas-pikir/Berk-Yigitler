@@ -11,7 +11,6 @@ function Emailus({ data }) {
     let data = {};
     formData.forEach((value, key) => (data[key] = value));
 
-    console.log(data);
 
     fetch(`${config.serverIP}:${config.serverPort}/mail`, {
       method: "POST",
@@ -19,7 +18,14 @@ function Emailus({ data }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
+    })
+      .then((response) => {
+        alert("Message sent to r.meredov@inbox.ru");
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -33,7 +39,7 @@ function Emailus({ data }) {
       </div>
       <div className="email">
         <div>r.meredov@inbox.ru</div>
-        <form class="form" data-form-title="Form Name" onSubmit={SendMail}>
+        <form className="form" data-form-title="Form Name" onSubmit={SendMail}>
           <input
             type="text"
             className="input_place"
@@ -61,7 +67,7 @@ function Emailus({ data }) {
             placeholder="Your message"
           ></textarea>
           <div className="submit_button_div">
-            <button type="submit" class="submit_button">
+            <button type="submit" className="submit_button">
               Send Message
             </button>
           </div>

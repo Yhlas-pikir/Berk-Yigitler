@@ -11,7 +11,6 @@ function MapEmail() {
     let data = {};
     formData.forEach((value, key) => (data[key] = value));
 
-    console.log(data);
 
     fetch(`${config.serverIP}:${config.serverPort}/mail`, {
       method: "POST",
@@ -19,7 +18,14 @@ function MapEmail() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
+    })
+      .then((response) => {
+        alert("Message sent to r.meredov@inbox.ru");
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div>
@@ -32,7 +38,7 @@ function MapEmail() {
           </p>
         </div>
 
-        <form class="form" onSubmit={SendMail} data-form-title="Form Name">
+        <form className="form" onSubmit={SendMail} data-form-title="Form Name">
           <input
             type="text"
             className="input_placeC"
@@ -59,8 +65,8 @@ function MapEmail() {
             name="text"
             placeholder="Your message"
           ></textarea>
-          <div class="submit_button_div">
-            <button type="submit" class="submit_button">
+          <div className="submit_button_div">
+            <button type="submit" className="submit_button">
               Send Message
             </button>
           </div>

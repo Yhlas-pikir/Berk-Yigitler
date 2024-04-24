@@ -39,7 +39,6 @@ function ItemPage() {
     GetData();
   }, []);
 
-  console.log(data);
 
   return (
     <div
