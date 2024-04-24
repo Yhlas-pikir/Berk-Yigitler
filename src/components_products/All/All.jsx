@@ -25,17 +25,14 @@ function All() {
     GetData();
   }, []);
 
+  console.log(data);
+
   return (
     <>
       <h1 style={{ textAlign: "center", marginTop: 20 }}>Our Products</h1>
       <div className="all_wrapper">
-<<<<<<< HEAD
         {data.map((d) => (
           <Link to={`/products/${d.id}`} style={{ color: "#000" }}>
-=======
-        {data.map((d, index) => (
-          <Link key={index} to={`/products/${d.id}`} style={{ color: "#fff" }}>
->>>>>>> 7516c7baf3a265c1c0c88c70fbf2e50d8af77a18
             <div className="all_element">
               <p>{d.name}</p>
               <img
