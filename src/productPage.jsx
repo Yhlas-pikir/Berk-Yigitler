@@ -13,7 +13,7 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import All from "./components_products/All/All";
 function ProductPage() {
   return (
-    <div>
+    <div  style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>
         <Navbar/>
         <All/> 
         <Aboutus/>

@@ -26,8 +26,9 @@
       } 
 }
 .location > iframe{
+    align-self: center;
     height: 96%;
-    width: 100%;
+    width: 92%;
 }
 .map_image{
     position: relative;

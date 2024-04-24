@@ -8,7 +8,7 @@ import whatsapp from "./assets/images/whatsapp.png"
 
 function GalleryPage() {
     return (
-      <div>
+      <div style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>
           <Navbar />
           <Welcome />
           <Aboutus />
