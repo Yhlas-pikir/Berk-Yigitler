@@ -23,15 +23,8 @@ const List = () => {
   }, []);
 
   return (
-    <div >
-      <Link
-        style={{
-          margin: "20px",
-          background:"green",
-          padding: "20px",
-        }}
-        to={"/admin/category/create"}
-      >
+    <div>
+      <Link className="create-button" to={"/admin/category/create"}>
         Create
       </Link>
       <table id="customers">
