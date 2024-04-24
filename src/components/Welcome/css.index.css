@@ -12,7 +12,8 @@
       } 
 }
 .welcome_image{
-    width: 49vw;
+    aspect-ratio: 16/9;
+    height: 365px;
     position: relative;
     @media (max-width: 768px) {
         width: 100vw;
