@@ -53,8 +53,8 @@
 } 
 @media (max-width:768px) {
 .about_mobile{
+    margin-top: auto;
     padding: 14px;
-    margin-top: 20px;
     background-color: #1c1c1c;
     display: flex;
     flex-direction: column;

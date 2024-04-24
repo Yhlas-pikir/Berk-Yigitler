@@ -17,6 +17,7 @@ import GalleryEdit from "./components/Admin/gallery/edit";
 
 import AdminMainList from "./components/Admin/main/main.jsx";
 import ContactPage from "./contactPage.jsx";
+import ItemPage from "./ItemPage.jsx";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
         <Route path="/products" element={<ProductPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/admin" element={<AdminPage />}>
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/item" element={<ItemPage />}>
           {/* <Route path="/" index element={<AdminMainList />} /> */}
           <Route path="main">
             <Route index element={<AdminMainList />} />
