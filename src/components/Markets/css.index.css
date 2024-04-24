@@ -136,7 +136,8 @@
     font-size: 30px;
   }
   .flip-card-front > img{
-    filter: brightness(40%)
+    filter: brightness(40%);
+    height: 100%;
   }
 
   

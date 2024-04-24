@@ -64,4 +64,8 @@
 
         display: flex;
     
-}}
+}
+.about_desk{
+    display: none;
+}
+}
