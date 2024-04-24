@@ -1,6 +1,6 @@
 .welcome_wrapper{
     display: flex;
-    width: 94vw;
+    width: 100vw;
     padding: 40px;
     gap: 20px;
     @media (max-width: 768px) {

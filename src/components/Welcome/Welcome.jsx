@@ -9,7 +9,7 @@ function Welcome({ data }) {
       <div className="welcome_image">
         <img
           src={`${config.serverIP}:${config.serverPort}/${data && data.image}`}
-          width={"98%"}
+          width={"100%"}
           alt=""
         />
       </div>
