@@ -26,8 +26,6 @@ function SwiperWel() {
     GetData();
   }, []);
 
-  console.log(data);
-
   return (
     <div className="swiper_wrapper">
       <Swiper

@@ -3,7 +3,6 @@ import css from "../Welcome/css.index.css";
 import config from "../../config.json";
 
 function Welcome({ data }) {
-  console.log("welocome", data);
   return (
     <div className="welcome_wrapper">
       <div className="welcome_image">

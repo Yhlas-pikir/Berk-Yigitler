@@ -24,7 +24,6 @@ const Edit = () => {
 
   const SendFrom = (e) => {
     e.preventDefault();
-    console.log(e.target);
 
     const data = new FormData(e.target);
 
@@ -36,7 +35,6 @@ const Edit = () => {
         response.json();
       })
       .then((response) => {
-        console.log(response);
         redirect("/admin/category");
       })
       .catch((err) => {

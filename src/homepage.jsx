@@ -31,7 +31,6 @@ function Homepage() {
   useEffect(() => {
     GetData();
   }, []);
-  console.log(data);
   return (
     <div style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>
       <Navbar />

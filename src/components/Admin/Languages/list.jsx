@@ -13,7 +13,6 @@ const List = () => {
       })
       .then((response) => {
         SetData(response);
-        console.log(response);
       });
   };
 
@@ -21,7 +20,6 @@ const List = () => {
     GetData();
   }, []);
 
-  console.log(data);
 
   return (
     <div>

@@ -21,11 +21,9 @@ const List = () => {
   useEffect(() => {
     GetData();
   }, []);
-  console.log(data);
 
   const SendFrom = (e) => {
     e.preventDefault();
-    console.log(e.target, e.target.action.split("/").pop());
 
     const data = new FormData(e.target);
     data.append("type", e.target.action.split("/").pop());
@@ -38,7 +36,6 @@ const List = () => {
         response.json();
       })
       .then((response) => {
-        console.log(response);
         redirect("/admin/main");
       })
       .catch((err) => {

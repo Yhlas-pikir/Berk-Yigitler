@@ -5,12 +5,27 @@ import config from "../../config.json";
 function Emailus({ data }) {
   const SendMail = (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
 
-    fetch(`https://jankoyer.com.tm/api/1.0//mail`, {
+    const formData = new FormData(e.target);
+
+    let data = {};
+    formData.forEach((value, key) => (data[key] = value));
+
+
+    fetch(`${config.serverIP}:${config.serverPort}/mail`, {
       method: "POST",
-      body: data,
-    });
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        alert("Message sent to r.meredov@inbox.ru");
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -24,7 +39,7 @@ function Emailus({ data }) {
       </div>
       <div className="email">
         <div>r.meredov@inbox.ru</div>
-        <form class="form" data-form-title="Form Name" onSubmit={SendMail}>
+        <form className="form" data-form-title="Form Name" onSubmit={SendMail}>
           <input
             type="text"
             className="input_place"
@@ -52,7 +67,7 @@ function Emailus({ data }) {
             placeholder="Your message"
           ></textarea>
           <div className="submit_button_div">
-            <button type="submit" class="submit_button">
+            <button type="submit" className="submit_button">
               Send Message
             </button>
           </div>
