@@ -34,7 +34,7 @@ function All() {
         {data.map((d) => (
           <Link to={`/products/${d.id}`}>
             <div className="all_element">
-              <p>${d.name}</p>
+              <p>{d.name}</p>
               <img
                 src={`${config.serverIP}:${config.serverPort}/${d.image}`}
                 alt=""

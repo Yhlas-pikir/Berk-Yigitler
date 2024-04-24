@@ -16,6 +16,7 @@ import GalleryList from "./components/Admin/gallery/list";
 import GalleryEdit from "./components/Admin/gallery/edit";
 
 import AdminMainList from "./components/Admin/main/main.jsx";
+import Contact from "./contactPage.jsx";
 
 import ItemPage from "./ItemPage.jsx";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/products" element={<ProductPage />} />
         <Route path="/products/:id" element={<ItemPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminPage />}>
           {/* <Route path="/" index element={<AdminMainList />} /> */}
           <Route path="main">
