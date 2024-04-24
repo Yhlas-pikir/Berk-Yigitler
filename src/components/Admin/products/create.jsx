@@ -52,7 +52,7 @@ const Create = () => {
             <label htmlFor="fname">Name</label>
           </div>
           <div className="col-75">
-            <input type="text" id="fname" name="name" />
+            <input type="text" className="adtext" id="fname" name="name" />
           </div>
         </div>
         {/* <div className="row">
@@ -103,7 +103,7 @@ const Create = () => {
         </div>
         <br />
         <div className="row">
-          <input type="submit" />
+          <input  type="submit" className="adsub"/>
         </div>
       </form>
     </div>
