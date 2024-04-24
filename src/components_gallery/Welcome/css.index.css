@@ -21,7 +21,8 @@
     justify-content: center;
 }
 .section_slide > img{
-    height: 100%;
+    aspect-ratio: 16/9;
+    height: 260px;
 }
 .welcome_wrapper_mobile{
     display: none;
@@ -50,7 +51,8 @@
     height: 300px;
 }
 .section_wrapper > div > img{
-    height: 100%;
+    aspect-ratio: 16/9;
+    height: 260px;
 }
 .section_wrapper > div{
     position: relative;
