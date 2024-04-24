@@ -10,7 +10,7 @@ const Edit = () => {
   const [data2, SetData2] = useState([]);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/product/${id}`)
+    fetch(`${config.serverIP}:${config.serverPort}/gallery/${id}`)
       .then((response) => {
         return response.json();
       })
@@ -42,7 +42,7 @@ const Edit = () => {
 
     const data = new FormData(e.target);
 
-    fetch(`${config.serverIP}:${config.serverPort}/category/${id}`, {
+    fetch(`${config.serverIP}:${config.serverPort}/gallery/${id}`, {
       method: "PUT",
       body: data,
     })
@@ -51,7 +51,7 @@ const Edit = () => {
       })
       .then((response) => {
         console.log(response);
-        redirect("/admin/product");
+        redirect("/admin/gallery");
       })
       .catch((err) => {
         console.log(err);
@@ -69,7 +69,7 @@ const Edit = () => {
             <input
               type="text"
               id="fname"
-              defaultValue={data.name}
+              defaultValue={data && data.name}
               name="name"
             />
           </div>
@@ -89,23 +89,31 @@ const Edit = () => {
             ></textarea>
           </div>
         </div> */}
-
         <div className="row">
+          <div className="col-25">
+            <label htmlFor="limage">Image</label>
+          </div>
+          <div className="col-75">
+            <input type="file" id="limage" multiple name="image" accept="" />
+          </div>
+        </div>
+        {/* <div className="row">
           <div className="col-25">
             <label htmlFor="country">Country</label>
           </div>
           <div className="col-75">
             <select id="country" name="categoryId">
-              {data2.map((d) => {
-                if (d.id === data.categoryId) {
-                  return <option value={d.id}>{d.name}</option>;
-                } else {
-                  return <option value={d.id}>{d.name}</option>;
-                }
-              })}
+              {data &&
+                data2.map((d) => {
+                  if (d.id === data.categoryId) {
+                    return <option value={d.id}>{d.name}</option>;
+                  } else {
+                    return <option value={d.id}>{d.name}</option>;
+                  }
+                })}
             </select>
           </div>
-        </div>
+        </div> */}
         <br />
         <div className="row">
           <input type="submit" />
