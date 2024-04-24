@@ -115,9 +115,16 @@
   }
   .flip-card-back > p{
     width: 80%;
+    -webkit-line-clamp: 2;
     font-size: 16px;
-    line-height: 1.42857143;
+    /* line-height: 1.42857143; */
     margin: 0;
+    height: 3.2em;  /* Adjust height based on font-size */
+    line-height: 1.6em;  /* Adjust line-height for spacing */
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
+    
   }
   .flip-card-back > p > span{
     margin: 0;

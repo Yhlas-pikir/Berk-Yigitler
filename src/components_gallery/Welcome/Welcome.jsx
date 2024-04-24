@@ -38,7 +38,7 @@ function Welcome() {
             <Swiper
               modules={[Pagination, Autoplay]}
               pagination={{ clickable: true }}
-              slidesPerView={3}
+              slidesPerView={2}
               speed={600}
               spaceBetween={30}
               autoplay={{
