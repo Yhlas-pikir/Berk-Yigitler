@@ -25,7 +25,7 @@ function App() {
         <Route path="/*" element={<Homepage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/about" element={<ContactPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/admin" element={<AdminPage />}>
           {/* <Route path="/" index element={<AdminMainList />} /> */}
           <Route path="main">

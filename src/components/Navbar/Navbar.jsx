@@ -11,7 +11,7 @@ function Navbar(){
                 <Link to={"/home"} style={{color: "black"}}><div className="option">Home</div> </Link>
                 <Link to={"/products"} style={{color: "black"}}> <div className="option" >Products</div></Link>
                 <Link to={"/gallery"} style={{color: "black"}}> <div className="option" >Gallery</div></Link>
-                <div className="option" >Contact us</div>
+                <Link to={"/contact"} style={{color: "black"}}> <div className="option" >Contact us</div></Link>
             </div>
         </div>  
     );

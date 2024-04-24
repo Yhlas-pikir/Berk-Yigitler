@@ -56,8 +56,8 @@ function Markets({ dataChange }) {
         </div>
       </div>
       {data.map((d) => (
-        <div className="cell2 flip-card" onClick={() => rotate("1")}>
-          <div className="flip-card-inner original" id="1">
+        <div className="cell2 flip-card" onClick={() => rotate(d.id)}>
+          <div className="flip-card-inner original" id={d.id}>
             <div className="flip-card-front" style={{ overflow: "hidden" }}>
               <img
                 width={"100%"}
@@ -71,9 +71,8 @@ function Markets({ dataChange }) {
               <p>{d.description}</p>
               <div className="buttons">
                 <Link to={"/products"} style={{ color: "#fff" }}>
-                  {" "}
                   Learn More &#x25B6;
-                </Link>{" "}
+                </Link>
               </div>
             </div>
           </div>

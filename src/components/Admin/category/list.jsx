@@ -23,8 +23,17 @@ const List = () => {
   }, []);
 
   return (
-    <div>
-      <Link to={"/admin/category/create"}>Create</Link>
+    <div >
+      <Link
+        style={{
+          margin: "20px",
+          background:"green",
+          padding: "20px",
+        }}
+        to={"/admin/category/create"}
+      >
+        Create
+      </Link>
       <table id="customers">
         <tbody>
           <tr>
