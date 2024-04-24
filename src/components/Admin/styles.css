@@ -174,20 +174,46 @@ label {
 }
 
 .create-button {
-  margin: 20px;
   background: green;
-  padding: 10px;
+  padding: 5px 10px;
+  margin: 5px;
   border-radius: 10%;
   color: white;
   font-size: x-large;
   font-weight: bold;
   font-family: sans-serif;
+  display: flex;
+  align-items: center;
 }
+
+.edit-button {
+  border: none;
+  padding: 5px 10px ;
+  background: orange;
+  border-radius: 10%;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin: 1px;
+
+}
+
+.delete-button {
+  border: none;
+  padding: 5px 10px ;
+  background: red;
+  border-radius: 10%;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin: 1px;
+}
+
 
 .content > div {
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: stretch;
   justify-content: flex-start;
   overflow-x: scroll;
 }

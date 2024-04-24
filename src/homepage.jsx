@@ -24,7 +24,8 @@ function Homepage() {
       })
       .then((response) => {
         SetData(response);
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
