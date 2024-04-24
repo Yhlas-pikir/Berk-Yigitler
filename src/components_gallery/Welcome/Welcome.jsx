@@ -32,19 +32,32 @@ function Welcome() {
   return (
     <>
       <div className="welcome_wrapper_desk">
-        {data.map((d, index) => (
+      {data.map((d, index) => (
           <div key={index}>
             <h1>{d.name}</h1>
-            <div className="section_wrapper">
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              pagination={{ clickable: true }}
+              slidesPerView={3}
+              speed={600}
+              spaceBetween={30}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              className="section_slider"
+              style={{ margin: "auto", left: 0, right: 0 }}
+            >
               {d.galleries.map((value, index) => (
-                <div key={index}>
+                <SwiperSlide key={index} className="section_slide">
                   <img
-                    alt=""
                     src={`${config.serverIP}:${config.serverPort}/${value.image}`}
+                    alt=""
                   />
-                </div>
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
           </div>
         ))}
       </div>
