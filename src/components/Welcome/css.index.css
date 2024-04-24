@@ -12,13 +12,16 @@
       } 
 }
 .welcome_image{
-    aspect-ratio: 16/9;
-    height: 365px;
+    width: 49vw;
     position: relative;
     @media (max-width: 768px) {
         width: 100vw;
         align-self: center;
       } 
+}
+.welcome_image > img{
+    aspect-ratio: 16/9;
+    height: 365px;
 }
 .welcome_text{
     width: 49vw;
