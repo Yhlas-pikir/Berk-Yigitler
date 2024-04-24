@@ -54,7 +54,7 @@ function SwiperWel() {
               <p>{d.name}</p>
               {d.description}
               <div className="button">
-                <Link to={"/products"} style={{ color: "#fff" }}>
+                <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
                   Learn More &#x25B6;
                 </Link>
               </div>
