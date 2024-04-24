@@ -24,9 +24,11 @@ const List = () => {
 
   return (
     <div>
-      <Link className="create-button" to={"/admin/category/create"}>
-        Create
-      </Link>
+      <div style={{ display: "flex" }}>
+        <Link className="create-button" to={"/admin/category/create"}>
+          Create
+        </Link>
+      </div>
       <table id="customers">
         <tbody>
           <tr>
@@ -55,6 +57,8 @@ const List = () => {
                 })}
                 <td style={{ cursor: "pointer" }}>
                   <button
+                    className="delete-button"
+
                     onClick={() => {
                       fetch(
                         `${config.serverIP}:${config.serverPort}/category/${row.id}`,
@@ -70,6 +74,7 @@ const List = () => {
                   </button>
                   <button
                     type="button"
+                    className="edit-button"
                     onClick={() => {
                       redirect(`/admin/category/${row.id}`);
                     }}
