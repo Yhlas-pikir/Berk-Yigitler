@@ -23,6 +23,16 @@ margin-top: 30px;
         display: none;
       } 
 }
+.emailus_image > img{
+    right: 0;
+    height: 500px;
+    padding-bottom: 20px;
+    @media (max-width: 768px) {
+        height: 46vh;
+        right: 0;
+        padding-bottom: 20px;
+      } 
+}
 .dividerE{
     margin-top: 13px;
     margin-bottom: 13px;
