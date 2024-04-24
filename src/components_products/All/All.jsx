@@ -32,7 +32,7 @@ function All() {
       <h1 style={{ textAlign: "center", marginTop: 20 }}>Our Products</h1>
       <div className="all_wrapper">
         {data.map((d) => (
-          <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
+          <Link to={`/products/${d.id}`} style={{ color: "#000" }}>
             <div className="all_element">
               <p>{d.name}</p>
               <img
