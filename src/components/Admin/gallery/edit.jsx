@@ -3,7 +3,6 @@ import config from "../../../config.json";
 import { useEffect, useState } from "react";
 import Loading from "../loading";
 
-
 const Edit = () => {
   const redirect = useNavigate();
   const params = useParams();
@@ -98,7 +97,13 @@ const Edit = () => {
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-            <input type="file" accept="image/*" id="limage" multiple name="image" accept="" />
+            <input
+              type="file"
+              accept="image/*"
+              id="limage"
+              multiple
+              name="image"
+            s/>
           </div>
         </div>
         {/* <div className="row">

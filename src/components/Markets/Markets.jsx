@@ -1,12 +1,4 @@
 import "./css.index.css";
-import back_glue from "../../assets/images/glue.webp";
-import back_paint from "../../assets/images/paints.jpg";
-import back_syndyes from "../../assets/images/synDyes.jpg";
-import back_epoxy from "../../assets/images/epoxy.jpg";
-import back_enz from "../../assets/images/enzyme.webp";
-import back_soft from "../../assets/images/softeners.jpg";
-import back_chem from "../../assets/images/chemicals.jpg";
-import back_clean from "../../assets/images/clean.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import config from "../../config.json";
@@ -57,33 +49,34 @@ function Markets({ dataChange }) {
           </p>
         </div>
       </div>
-      {data && data.map((d, index) => (
-        <div
-          className="cell2 flip-card"
-          key={index}
-          onClick={() => rotate(d.id)}
-        >
-          <div className="flip-card-inner original" id={d.id}>
-            <div className="flip-card-front" style={{ overflow: "hidden" }}>
-              <img
-                width={"100%"}
-                src={`${config.serverIP}:${config.serverPort}/${d.image}`}
-                alt=""
-              />
-              <div>{d.name}</div>
-            </div>
-            <div className="flip-card-back">
-              <h3> {d.name}</h3>
-              <p>{d.description}</p>
-              <div className="buttons">
-                <Link to={"/products"} style={{ color: "#fff" }}>
-                  Learn More &#x25B6;
-                </Link>
+      {data &&
+        data.map((d, index) => (
+          <div
+            className="cell2 flip-card"
+            key={index}
+            onClick={() => rotate(d.id)}
+          >
+            <div className="flip-card-inner original" id={d.id}>
+              <div className="flip-card-front" style={{ overflow: "hidden" }}>
+                <img
+                  width={"100%"}
+                  src={`${config.serverIP}:${config.serverPort}/${d.image}`}
+                  alt=""
+                />
+                <div>{d.name}</div>
+              </div>
+              <div className="flip-card-back">
+                <h3> {d.name}</h3>
+                <p>{d.description}</p>
+                <div className="buttons">
+                  <Link to={"/products"} style={{ color: "#fff" }}>
+                    Learn More &#x25B6;
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }

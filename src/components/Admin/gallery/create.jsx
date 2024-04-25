@@ -21,7 +21,7 @@ const Create = () => {
       })
       .then((response) => {
         setLoading(false);
-        // redirect("/admin/gallery");
+        redirect("/admin/gallery");
       })
       .catch((err) => {
         console.log(err);
