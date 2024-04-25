@@ -1,12 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import server from "../../../config.json";
 import { useEffect, useState } from "react";
+import Loading from "../loading";
 
 const Edit = () => {
   const redirect = useNavigate();
   const params = useParams();
   const id = params.id;
   const [data, setData] = useState({});
+  let [loading, setLoading] = useState(false);
 
   const GetData = () => {
     fetch(`${server.serverIP}:${server.serverPort}/category/${id}`)
@@ -26,7 +28,7 @@ const Edit = () => {
     e.preventDefault();
 
     const data = new FormData(e.target);
-
+    setLoading(true);
     fetch(`${server.serverIP}:${server.serverPort}/category/${id}`, {
       method: "PUT",
       body: data,
@@ -40,10 +42,12 @@ const Edit = () => {
       .catch((err) => {
         console.log(err);
       });
+    setLoading(true);
   };
 
   return (
     <div className="container">
+      <Loading value={loading} />
       <form onSubmit={SendFrom}>
         <div className="row">
           <div className="col-25">

@@ -1,4 +1,4 @@
 {
-  "serverIP": "http://216.250.9.97",
+  "serverIP": "http://localhost",
   "serverPort": 4000
 }

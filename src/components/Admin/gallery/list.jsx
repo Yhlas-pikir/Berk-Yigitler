@@ -34,18 +34,19 @@ const List = () => {
           <tr>
             {!!data &&
               !!data[0] &&
-              Object.keys(data[0]).map((key) => <th>{key}</th>)}
+              Object.keys(data[0]).map((Key, i) => <th key={i}>{Key}</th>)}
             <th></th>
           </tr>
           {!!data &&
             data.map((row) => (
               <tr>
-                {Object.keys(row).map((col) => {
+                {Object.keys(row).map((col, i) => {
                   if (col === "galleries") {
                     return (
-                      <td style={{ overflow: "auto" }}>
-                        {row[col].map((value) => (
+                      <td key={i} style={{ overflow: "auto" }}>
+                        {row[col].map((value, i2) => (
                           <img
+                            key={i2}
                             height={"60px"}
                             src={`${config.serverIP}:${config.serverPort}/${value.image}`}
                             alt=""
@@ -54,21 +55,23 @@ const List = () => {
                       </td>
                     );
                   } else {
-                    return <td>{row[col]}</td>;
+                    return <td key={i}>{row[col]}</td>;
                   }
                 })}
                 <td style={{ cursor: "pointer" }}>
                   <button
                     className="delete-button"
-                 
                     onClick={() => {
-                      fetch(
-                        `${config.serverIP}:${config.serverPort}/gallery/${row.id}`,
-                        {
-                          method: "DELETE",
-                        }
-                      );
-                      window.location.reload();
+                      // eslint-disable-next-line no-restricted-globals
+                      if (confirm(`You have delete ${row.name}`)) {
+                        fetch(
+                          `${config.serverIP}:${config.serverPort}/gallery/${row.id}`,
+                          {
+                            method: "DELETE",
+                          }
+                        );
+                        window.location.reload();
+                      }
                     }}
                     type="button"
                   >
@@ -77,7 +80,6 @@ const List = () => {
                   <button
                     type="button"
                     className="edit-button"
-
                     onClick={() => {
                       redirect(`/admin/gallery/${row.id}`);
                     }}

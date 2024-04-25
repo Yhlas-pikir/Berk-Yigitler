@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import server from "../../../config.json";
+import Loading from "../loading";
+import { useRef, useState } from "react";
 
-const Create = () => {
+const Create = (ddd) => {
   const redirect = useNavigate();
+
+  let [loading, setLoading] = useState(false);
 
   const SendFrom = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const data = new FormData(e.target);
-
     fetch(`${server.serverIP}:${server.serverPort}/category`, {
       method: "POST",
       body: data,
@@ -22,10 +25,12 @@ const Create = () => {
       .catch((err) => {
         console.log(err);
       });
+    setLoading(true);
   };
 
   return (
     <div className="container">
+      <Loading value={loading} />
       <form onSubmit={SendFrom}>
         <div className="row">
           <div className="col-25">
@@ -52,7 +57,7 @@ const Create = () => {
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-          <input type="file" id="limage" name="image" accept="" />
+            <input type="file" id="limage" name="image" accept="" />
           </div>
         </div>
         {/* <div className="row">
