@@ -69,7 +69,7 @@ function Markets({ dataChange }) {
                 <h3> {d.name}</h3>
                 <p>{d.description}</p>
                 <div className="buttons">
-                  <Link to={"/products"} style={{ color: "#fff" }}>
+                  <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
                     Learn More &#x25B6;
                   </Link>
                 </div>
