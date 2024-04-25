@@ -1,10 +1,11 @@
 .markets_wrapper{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(1,1fr);
-      }
+}
+@media (max-width: 768px) {
+  .markets_wrapper{
+  grid-template-columns: repeat(1,1fr);
+}
 }
 .cell1{
     background-color: #393637;
@@ -14,11 +15,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @media (max-width: 768px) {
-    padding: 25px 3px 25px 0px ;
-    grid-column: span 1;
-      }
 }
+@media (max-width: 768px) {
+  .cell1{
+  padding: 25px 3px 25px 0px ;
+  grid-column: span 1;
+    }
+  }
 .cell2, .cell3, .cell4, .cell5, .cell6, .cell7, .cell8, .cell9 {
     position: relative;
     -webkit-line-clamp: 2;
@@ -30,10 +33,12 @@
     width: 20%;
     height: 1px;
     background-color: gray;
-    @media (max-width: 768px) {
-    margin-top: 8px;
-    margin-bottom: 9px;
-      }
+}
+@media (max-width: 768px) {
+  .divider1{
+  margin-top: 8px;
+  margin-bottom: 9px;
+}
 }
 .cell1_txt{
     width: 80%;
@@ -42,9 +47,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    @media (max-width: 768px) {
-      width: 75%;
-      }
+}
+@media (max-width: 768px) {
+  .cell1_txt{
+  width: 75%;
+  }
 }
 .flip-card {
     background-color: #393637;

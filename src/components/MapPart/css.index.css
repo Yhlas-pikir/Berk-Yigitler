@@ -4,11 +4,13 @@
     gap: 20px;
     width: 48vw;
     padding-left: 40px;
-    @media (max-width: 768px) {
-        width: 100vw;
-        height: 50vh;
-        padding-left: 0%;
-      } 
+}
+@media (max-width: 768px) {
+    .location{
+    width: 100vw;
+    height: 50vh;
+    padding-left: 0%;
+  } 
 }
 .email > div{
     font-size: 19px;
@@ -20,11 +22,13 @@
     margin-top: 30px;
     width: 100%;
     justify-content: space-between;
-    overflow: hidden;
-    @media (max-width: 768px) {
-        flex-direction: column;
-      } 
+    overflow: hidden; 
 }
+@media (max-width: 768px) {
+    .map_wrapper{
+     flex-direction: column;
+    }
+  }
 .location > iframe{
     align-self: center;
     height: 96%;
@@ -34,18 +38,23 @@
     position: relative;
     display: flex;
     width: 48vw;
-    @media (max-width: 768px) {
-        display: none;
-      } 
 }
+@media (max-width: 768px) {
+    .map_image{
+    display: none;
+    }
+  } 
 .map_image > img{
     right: 0;
-    height: 500px;padding-bottom: 20px;
+    height: 500px;
+    padding-bottom: 20px;
+}
     @media (max-width: 768px) {
+        .map_image > img{
         height: 46vh;
         right: 0;
         padding-bottom: 20px;
-      } 
+    } 
 }
 .divider{
     margin-top: 20px;
