@@ -9,9 +9,9 @@ const Create = () => {
 
   const SendFrom = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const data = new FormData(e.target);
-    setLoading(true);
     fetch(`${config.serverIP}:${config.serverPort}/gallery`, {
       method: "POST",
       body: data,
@@ -20,18 +20,17 @@ const Create = () => {
         response.json();
       })
       .then((response) => {
-        redirect("/admin/gallery");
+        setLoading(false);
+        // redirect("/admin/gallery");
       })
       .catch((err) => {
         console.log(err);
       });
-    setLoading(false); 
   };
 
   return (
     <div className="container">
       <Loading value={loading} />
-
       <form onSubmit={SendFrom}>
         <div className="row">
           <div className="col-25">
@@ -58,7 +57,13 @@ const Create = () => {
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-            <input type="file" id="limage" multiple name="image" accept="" />
+            <input
+              type="file"
+              id="limage"
+              multiple
+              name="image"
+              accept="image/*"
+            />
           </div>
         </div>
         {/* 
