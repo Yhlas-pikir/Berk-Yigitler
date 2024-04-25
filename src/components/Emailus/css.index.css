@@ -74,9 +74,9 @@ margin-top: 30px;
     font-size: 18px;
 }
 .text_area{
-    padding: 0px 20px 0px 20px;
+    padding: 10px 20px 0px 20px;
     width: 80%;
-    height: 60px;
+    height: 50px;
     margin-bottom: 20px;
     border-radius: 8px;
     border: #009a4e 2px solid;
@@ -88,6 +88,7 @@ margin-top: 30px;
 }
 .submit_button{
     background-color: #009a4e;
+    border: 0px;
     border-radius: 15px;
     padding: 13px 16px 13px 16px;
     font-size: 25px;

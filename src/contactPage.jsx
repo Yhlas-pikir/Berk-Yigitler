@@ -4,7 +4,7 @@ import MapEmail from './components_contact/MapEmail/MapEmail'
 import Aboutus from './components/Aboutus/Aboutus'
 
 import call from "./assets/images//call.png";
-import whatsapp from "./assets/images/whatsapp.png";
+import whatsapp from "./assets/images/whatsapp.webp";
 function ContactPage() {
   return (
     <div style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>

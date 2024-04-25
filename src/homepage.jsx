@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import SwiperWel from "./components/Swiper/Swiper";
 import Welcome from "./components/Welcome/Welcome";
 import call from "./assets/images//call.png";
-import whatsapp from "./assets/images/whatsapp.png";
+import whatsapp from "./assets/images/whatsapp.webp";
 import Aboutus from "./components/Aboutus/Aboutus";
 import { useEffect, useState } from "react";
 import config from "./config.json";

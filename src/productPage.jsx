@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
 import call from "./assets/images//call.png";
-import whatsapp from "./assets/images/whatsapp.png";
+import whatsapp from "./assets/images/whatsapp.webp";
 import Adhesives from "./components_products/Adhesives/Adhesives";
 import Paints from "./components_products/Paints/Paints";
 import TextileChem from "./components_products/TextileChem/TextileChem";

@@ -36,8 +36,7 @@ function Welcome() {
           <div key={index}>
             <h1>{d.name}</h1>
             <Swiper
-              modules={[Pagination, Autoplay]}
-              pagination={{ clickable: true }}
+              modules={[Autoplay]}
               slidesPerView={2}
               speed={600}
               spaceBetween={30}
@@ -67,8 +66,7 @@ function Welcome() {
           <div key={index}>
             <h1>{d.name}</h1>
             <Swiper
-              modules={[Pagination, Autoplay]}
-              pagination={{ clickable: true }}
+              modules={[ Autoplay]}
               slidesPerView={1}
               speed={600}
               spaceBetween={30}

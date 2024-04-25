@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Welcome from "./components_gallery/Welcome/Welcome";
 
 import call from "./assets/images//call.png"
-import whatsapp from "./assets/images/whatsapp.png"
+import whatsapp from "./assets/images/whatsapp.webp"
 
 
 function GalleryPage() {
