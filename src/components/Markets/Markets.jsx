@@ -14,7 +14,7 @@ function Markets({ dataChange }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/category?size:8`, {
+    fetch(`${config.serverIP}:${config.serverPort}/category?size=8`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -28,6 +28,8 @@ function Markets({ dataChange }) {
   useEffect(() => {
     GetData();
   }, []);
+
+  console.log(data);
 
   function rotate(id) {
     if (window.screen.width < 768) {
@@ -55,7 +57,7 @@ function Markets({ dataChange }) {
           </p>
         </div>
       </div>
-      {data.map((d, index) => (
+      {data && data.map((d, index) => (
         <div
           className="cell2 flip-card"
           key={index}

@@ -62,7 +62,7 @@ const List = () => {
                         defaultValue={data[d][d2]}
                       ></textarea>
                     ) : d2 === "image" ? (
-                      <input type="file" id="limage" name="image" accept="" />
+                      <input type="file" accept="image/*" id="limage" name="image" accept="" />
                     ) : (
                       <input
                         type="text"

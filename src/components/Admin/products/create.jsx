@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import config from "../../../config.json";
 import { useEffect, useState } from "react";
+import Loading from "../loading";
 
 const Create = () => {
   const redirect = useNavigate();
   const [data, SetData] = useState([]);
+
+  let [loading, setLoading] = useState(false);
 
   const GetData = () => {
     fetch(`${config.serverIP}:${config.serverPort}/category`, {
@@ -24,7 +27,7 @@ const Create = () => {
 
   const SendFrom = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const data = new FormData(e.target);
 
     fetch(`${config.serverIP}:${config.serverPort}/product`, {
@@ -40,10 +43,12 @@ const Create = () => {
       .catch((err) => {
         console.log(err);
       });
+    setLoading(false);
   };
 
   return (
     <div className="container">
+       <Loading value={loading} />
       <form onSubmit={SendFrom}>
         <div className="row">
           <div className="col-25">
@@ -70,7 +75,7 @@ const Create = () => {
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-            <input type="file" id="limage" name="image" accept="" />
+            <input type="file" accept="image/*" id="limage" name="image" accept="" />
           </div>
         </div> */}
         {/* 
@@ -101,7 +106,7 @@ const Create = () => {
         </div>
         <br />
         <div className="row">
-          <input  type="submit" className="adsub"/>
+          <input type="submit" className="adsub" />
         </div>
       </form>
     </div>

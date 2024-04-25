@@ -80,7 +80,7 @@ const Edit = () => {
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-            <input type="file" id="limage" name="image" accept="" />
+            <input type="file" accept="image/*" id="limage" name="image" accept="" />
           </div>
         </div>
         {/* <div className="row">

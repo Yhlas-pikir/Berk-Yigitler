@@ -9,11 +9,9 @@ import whatsapp from "./assets/images/whatsapp.png";
 import Aboutus from "./components/Aboutus/Aboutus";
 import { useEffect, useState } from "react";
 import config from "./config.json";
-import { useNavigate } from "react-router-dom";
 
 function Homepage() {
   const [data, SetData] = useState({});
-  const redirect = useNavigate();
 
   const GetData = () => {
     fetch(`${config.serverIP}:${config.serverPort}/main`, {
@@ -32,7 +30,9 @@ function Homepage() {
     GetData();
   }, []);
   return (
-    <div style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>
+    <div
+      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+    >
       <Navbar />
       <SwiperWel />
       <Welcome data={data.welcome} />
