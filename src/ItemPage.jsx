@@ -52,6 +52,7 @@ function ItemPage() {
           width: "90%",
           alignSelf: "center",
           marginTop: "20px",
+          marginBottom: "40px",
         }}
       >
         <h2 style={{ textAlign: "left", marginBottom: 10 }}>

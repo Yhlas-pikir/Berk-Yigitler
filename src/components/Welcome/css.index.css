@@ -1,7 +1,7 @@
 .welcome_wrapper{
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 98vw;
     padding: 40px 0px 40px 0px;
     gap: 20px;
 }
