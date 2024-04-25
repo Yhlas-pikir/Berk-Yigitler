@@ -56,13 +56,16 @@ const List = () => {
                   <button
                     className="delete-button"
                     onClick={() => {
-                      fetch(
-                        `${config.serverIP}:${config.serverPort}/product/${row.id}`,
-                        {
-                          method: "DELETE",
-                        }
-                      );
-                      window.location.reload();
+                      // eslint-disable-next-line no-restricted-globals
+                      if (confirm(`You have delete ${row.name}`)) {
+                        fetch(
+                          `${config.serverIP}:${config.serverPort}/product/${row.id}`,
+                          {
+                            method: "DELETE",
+                          }
+                        );
+                        window.location.reload();
+                      }
                     }}
                     type="button"
                   >

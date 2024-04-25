@@ -41,7 +41,7 @@ const Edit = () => {
 
     const data = new FormData(e.target);
 
-    fetch(`${config.serverIP}:${config.serverPort}/category/${id}`, {
+    fetch(`${config.serverIP}:${config.serverPort}/product/${id}`, {
       method: "PUT",
       body: data,
     })
