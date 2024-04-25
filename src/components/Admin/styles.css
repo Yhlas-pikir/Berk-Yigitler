@@ -188,19 +188,18 @@ label {
 
 .edit-button {
   border: none;
-  padding: 5px 10px ;
+  padding: 5px 10px;
   background: orange;
   border-radius: 10%;
   color: white;
   font-weight: bold;
   font-family: sans-serif;
   margin: 1px;
-
 }
 
 .delete-button {
   border: none;
-  padding: 5px 10px ;
+  padding: 5px 10px;
   background: red;
   border-radius: 10%;
   color: white;
@@ -209,7 +208,6 @@ label {
   margin: 1px;
 }
 
-
 .content > div {
   display: flex;
   flex-direction: column;
@@ -217,3 +215,49 @@ label {
   justify-content: flex-start;
   overflow-x: scroll;
 }
+
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #3131314f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+@keyframes loading-animation {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.loading > div {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 10px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-block-end-color: transparent;
+  border-block-start-color: transparent;
+  border-style: groove;
+  animation: loading-animation infinite 1s linear;
+}
+
+.loading-hidden {
+  display: none;
+}
+
+/* .loading > div > div {
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 100%;
+} */

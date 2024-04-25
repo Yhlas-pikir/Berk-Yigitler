@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import config from "../../../config.json";
+import Loading from "../loading";
+import { useState } from "react";
 
 const Create = () => {
   const redirect = useNavigate();
+  let [loading, setLoading] = useState(false);
 
   const SendFrom = (e) => {
     e.preventDefault();
 
     const data = new FormData(e.target);
-
+    setLoading(true);
     fetch(`${config.serverIP}:${config.serverPort}/gallery`, {
       method: "POST",
       body: data,
@@ -22,10 +25,13 @@ const Create = () => {
       .catch((err) => {
         console.log(err);
       });
+    setLoading(false); 
   };
 
   return (
     <div className="container">
+      <Loading value={loading} />
+
       <form onSubmit={SendFrom}>
         <div className="row">
           <div className="col-25">

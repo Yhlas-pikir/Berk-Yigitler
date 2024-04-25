@@ -8,6 +8,7 @@ const Edit = () => {
   const id = params.id;
   const [data, setData] = useState({});
   const [data2, SetData2] = useState([]);
+  let [loading, setLoading] = useState(false);
 
   const GetData = () => {
     fetch(`${config.serverIP}:${config.serverPort}/gallery/${id}`)
@@ -54,10 +55,13 @@ const Edit = () => {
       .catch((err) => {
         console.log(err);
       });
+    setLoading(false);
   };
 
   return (
     <div className="container">
+      <Loading value={loading} />
+
       <form onSubmit={SendFrom}>
         <div className="row">
           <div className="col-25">
