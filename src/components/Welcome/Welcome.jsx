@@ -4,7 +4,8 @@ import config from "../../config.json";
 
 function Welcome({ data }) {
   return (
-    <div className="welcome_wrapper">
+    <div className="welcome_wrapper_b">
+      <div className="welcome_wrapper">
       <div className="welcome_image">
         <img
           src={`${config.serverIP}:${config.serverPort}/${data && data.image}`}
@@ -18,6 +19,7 @@ function Welcome({ data }) {
         <p className="berkyigitler"> ÝIGITLER</p>
         <div className="dividerW"></div>
         <p className="des_txt">{data && data.description}</p>
+      </div>
       </div>
     </div>
   );

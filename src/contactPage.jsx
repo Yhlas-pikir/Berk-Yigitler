@@ -10,7 +10,7 @@ function ContactPage() {
     <div style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>
         <Navbar />
         <MapEmail />
-        <a href="tel:+99361471919">
+        <a href="tel:+99365644141">
         <div
           className="fixedcall"
           style={{

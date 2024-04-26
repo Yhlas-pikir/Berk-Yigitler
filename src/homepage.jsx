@@ -39,7 +39,7 @@ function Homepage() {
       <Markets dataChange={data.market} />
       <Emailus data={data.mail} />
       <MapPart data={data.map} />
-      <a href="tel:+99361471919">
+      <a href="tel:+99365644141">
         <div
           className="fixedcall"
           style={{

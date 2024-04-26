@@ -39,7 +39,7 @@ function Welcome() {
               modules={[Autoplay]}
               slidesPerView={2}
               speed={600}
-              spaceBetween={30}
+              spaceBetween={40}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
@@ -51,6 +51,7 @@ function Welcome() {
               {d.galleries.map((value, index) => (
                 <SwiperSlide key={index} className="section_slide">
                   <img
+                  style={{aspectRatio:"16/9"}}
                     src={`${config.serverIP}:${config.serverPort}/${value.image}`}
                     alt=""
                   />
@@ -69,14 +70,13 @@ function Welcome() {
               modules={[ Autoplay]}
               slidesPerView={1}
               speed={600}
-              spaceBetween={30}
+              spaceBetween={40}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
               }}
               loop={true}
               className="section_slider"
-              style={{ margin: "auto", left: 0, right: 0 }}
             >
               {d.galleries.map((value, index) => (
                 <SwiperSlide key={index} className="section_slide">

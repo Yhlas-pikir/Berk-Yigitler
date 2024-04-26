@@ -3,7 +3,6 @@
     flex-direction: column;
     gap: 20px;
     width: 48vw;
-    padding-left: 40px;
 }
 @media (max-width: 768px) {
     .location{
@@ -17,8 +16,8 @@
     display: flex;
     gap: 20px;
     margin-top: 30px;
-    width: 100%;
-    justify-content: space-between;
+    width: 97%;
+    justify-content: center;
     overflow: hidden; 
 }
 @media (max-width: 768px) {
@@ -29,12 +28,11 @@
 .location > iframe{
     align-self: center;
     height: 96%;
-    width: 92%;
+    width: 100%;
 }
 .map_image{
     position: relative;
     display: flex;
-    width: 48vw;
 }
 @media (max-width: 768px) {
     .map_image{
@@ -42,6 +40,7 @@
     }
   } 
 .map_image > img{
+    aspect-ratio: 16/13  ;
     right: 0;
     height: 500px;
     padding-bottom: 20px;

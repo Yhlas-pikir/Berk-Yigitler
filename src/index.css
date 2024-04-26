@@ -14,7 +14,12 @@
     margin-top: 20px;
     align-self: center;
 }
-@media (max-width:768px) {
+@media (max-width:1209px) {
+  .itemImage{
+    height: 300px;
+  }
+}
+@media (max-width:941px) {
   .itemImage{
     display: none;
   }
@@ -25,12 +30,12 @@
   width: 80%;
   padding-bottom: 40px;
 }
-@media (max-width:768px) {
+@media (max-width:941px) {
   .itemImageWrapepr{
     justify-content: center;
   }
 }
-@media (max-width:768px) {
+@media (max-width:941px) {
   .itemText{
     text-align: center;
   }

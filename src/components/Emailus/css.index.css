@@ -10,6 +10,7 @@
 .emailus_wrapper{
     display: flex;
     gap: 20px;
+    justify-content: center;
     width: 97%;
 margin-top: 30px;
 }
@@ -28,6 +29,7 @@ margin-top: 30px;
     }
   } 
 .emailus_image > img{
+    aspect-ratio: 16/13  ;
     right: 0;
     height: 500px;
     padding-bottom: 20px;

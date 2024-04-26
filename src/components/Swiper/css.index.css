@@ -34,7 +34,7 @@
 .swiper_slide > div{
     background-color: rgba(75, 75, 75, 0.342);
     padding: 30px 40px 30px 40px;
-    width: 40%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;

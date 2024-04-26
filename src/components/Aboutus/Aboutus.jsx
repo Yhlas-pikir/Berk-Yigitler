@@ -23,7 +23,7 @@ function Aboutus(){
                     </div>
                     <div>
                         <img src={call} width={25} style={{marginRight:4, filter: "invert(0.4)"}} height={25} alt="" />
-                        <a href="tel:+99361471919"> <p style={{color:"gray"}}>: +99360186363</p></a>
+                        <p style={{color:"gray"}}>: +99360186363, +99365641141, +99365717701</p>
                     </div>
                     <div>
                         <img src={loc} width={35} style={{marginRight:4, filter: "invert(0.4)"}} height={35} alt="" />
@@ -38,7 +38,9 @@ function Aboutus(){
             <p style={{color:"coral"}}>GMAIL</p>
             <p style={{color:"gray", width:"85%",textAlign:"center"}}>r.meredov@inbox.ru</p>
             <p style={{color:"#216FB4", marginTop:"20px"}}>PHONE</p>
-            <a href="tel:+99361471919"> <p style={{color:"gray", width:"85%",textAlign:"center"}}>+99360186363</p></a>
+            <a href="tel:+99365644141"> <p style={{color:"gray", width:"85%",textAlign:"center"}}>+99360186363</p></a>
+            <a href="tel:+99365644141"> <p style={{color:"gray", width:"85%",textAlign:"center"}}>+99365641141</p></a>
+            <a href="tel:+99365644141"> <p style={{color:"gray", width:"85%",textAlign:"center"}}>+993656717701</p></a>
             <p style={{color:"#E93E3A", marginTop:"20px"}}>ADRESS</p>
             <p style={{color:"gray", width:"85%",textAlign:"center", marginBottom:"10px"}}>Akhal velayat, Bugday etrap, industrial zone of OHJP named after M. Sopyyew</p>
         </div>

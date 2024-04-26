@@ -1,16 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import call from "./assets/images//call.png";
 import whatsapp from "./assets/images/whatsapp.webp";
-import Adhesives from "./components_products/Adhesives/Adhesives";
-import Paints from "./components_products/Paints/Paints";
-import TextileChem from "./components_products/TextileChem/TextileChem";
-import Epoxy from "./components_products/Epoxy/Epoxy";
-import SynDyes from "./components_products/SynDyes/SynDyes";
-import Clean from "./components_products/Clean/Clean";
-import Enzyme from "./components_products/Enzyme/Enzyme";
 import Aboutus from "./components/Aboutus/Aboutus";
-import All from "./components_products/All/All";
-import adhvs from "./assets/images/adhesives.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 import config from "./config.json";
 import React, { useEffect, useState } from "react";
@@ -18,6 +9,8 @@ function ItemPage() {
   const { id } = useParams();
 
   const [data, SetData] = useState({});
+  
+  const [image, SetImage] = useState();
   const redirect = useNavigate();
 
   const GetData = () => {
@@ -32,6 +25,10 @@ function ItemPage() {
       })
       .then((response) => {
         SetData(response);
+        console.log("-------------------------",response);
+        SetImage(response.image)
+        
+        console.log("-------------------------asd",image);
       })
       .catch((err) => console.log(err));
   };
@@ -67,12 +64,12 @@ function ItemPage() {
                 <p style={{ fontSize: 20 }}>{product.name}</p>
               ))}
           </div>
-          <img className="itemImage" src={adhvs} alt="" />
+          <img className="itemImage" src={`${config.serverIP}:${config.serverPort}/${image}`} alt="" />
 
         </div>
       </div>
       <Aboutus />
-      <a href="tel:+99361471919">
+      <a href="tel:+99365644141">
         <div
           className="fixedcall"
           style={{
@@ -93,7 +90,7 @@ function ItemPage() {
           <img src={call} width={24} height={24} alt="" />
         </div>
       </a>
-      <a href="https://wa.me/99361471919">
+      <a href="https://wa.me/99365644141">
         <img
           style={{
             height: 65,

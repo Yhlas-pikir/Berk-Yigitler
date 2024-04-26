@@ -21,7 +21,7 @@
     background-color: #1c1c1c;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 0;
     height: fit-content; 
 }

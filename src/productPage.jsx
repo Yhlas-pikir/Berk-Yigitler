@@ -1,13 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
 import call from "./assets/images//call.png";
 import whatsapp from "./assets/images/whatsapp.webp";
-import Adhesives from "./components_products/Adhesives/Adhesives";
-import Paints from "./components_products/Paints/Paints";
-import TextileChem from "./components_products/TextileChem/TextileChem";
-import Epoxy from "./components_products/Epoxy/Epoxy";
-import SynDyes from "./components_products/SynDyes/SynDyes";
-import Clean from "./components_products/Clean/Clean";
-import Enzyme from "./components_products/Enzyme/Enzyme";
 import Aboutus from "./components/Aboutus/Aboutus";
 import All from "./components_products/All/All";
 
@@ -22,7 +15,7 @@ function ProductPage() {
       <Navbar />
       <All />
       <Aboutus />
-      <a href="tel:+99361471919">
+      <a href="tel:+99365644141">
         <div
           className="fixedcall"
           style={{
@@ -43,7 +36,7 @@ function ProductPage() {
           <img src={call} width={24} height={24} alt="" />
         </div>
       </a>
-      <a href="https://wa.me/99361471919">
+      <a href="https://wa.me/99365644141">
         <img
           style={{
             height: 65,

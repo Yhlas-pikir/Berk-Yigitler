@@ -12,7 +12,7 @@ function GalleryPage() {
           <Navbar />
           <Welcome />
           <Aboutus />
-          <a href="tel:+99361471919"><div className="fixedcall" style={{backgroundColor:"white",height:50, width:50, position:"fixed", bottom: 30, left:10, borderRadius:"50%",display:"flex", alignItems:'center',justifyContent:'center',border:"1px solid black",zIndex:999}}>
+          <a href="tel:+99365644141"><div className="fixedcall" style={{backgroundColor:"white",height:50, width:50, position:"fixed", bottom: 30, left:10, borderRadius:"50%",display:"flex", alignItems:'center',justifyContent:'center',border:"1px solid black",zIndex:999}}>
           <img src={call} width={24} height={24} alt="" />
         </div>
         </a>
