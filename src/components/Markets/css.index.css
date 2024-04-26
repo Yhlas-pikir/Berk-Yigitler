@@ -1,6 +1,7 @@
 .markets_wrapper{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    background-color: #393637;
 }
 @media (max-width: 768px) {
   .markets_wrapper{
@@ -47,6 +48,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    letter-spacing: 1px;
 }
 @media (max-width: 768px) {
   .cell1_txt{

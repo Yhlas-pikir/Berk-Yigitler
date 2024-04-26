@@ -38,7 +38,7 @@ function Emailus({ data }) {
         />
       </div>
       <div className="email">
-        <div>r.meredov@inbox.ru</div>
+        <div>Bizimle iletisime gecin</div>
         <form className="form" data-form-title="Form Name" onSubmit={SendMail}>
           <input
             type="text"

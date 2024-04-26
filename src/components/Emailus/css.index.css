@@ -1,10 +1,10 @@
 .email{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 .email > div{
-    font-size: 19px;
+    font-size: 32px;
     font-weight: bold;
 }
 .emailus_wrapper{

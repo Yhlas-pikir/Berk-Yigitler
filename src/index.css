@@ -8,3 +8,30 @@
   font-family: font-black;
   text-decoration: none;
 }
+.itemImage{
+    aspect-ratio: 16/9;
+    height: 400px;
+    margin-top: 20px;
+    align-self: center;
+}
+@media (max-width:768px) {
+  .itemImage{
+    display: none;
+  }
+}
+.itemImageWrapepr{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding-bottom: 40px;
+}
+@media (max-width:768px) {
+  .itemImageWrapepr{
+    justify-content: center;
+  }
+}
+@media (max-width:768px) {
+  .itemText{
+    text-align: center;
+  }
+}

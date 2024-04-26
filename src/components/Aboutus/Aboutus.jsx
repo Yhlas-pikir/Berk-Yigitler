@@ -13,7 +13,7 @@ function Aboutus(){
                 <div className="esas">
                     <img src={logo2}height={"60px"} alt="" />
                     <div className="divider"></div>
-                    <p style={{color:"gray", width:"85%",textAlign:"center"}}>Empowering industries worldwide, Berk Ýigitler pioneers innovative chemical solutions. With a commitment to excellence, we drive progress and sustainability. Join us in shaping a brighter future through chemistry.</p>
+                    <p style={{color:"gray", width:"85%",textAlign:"center", letterSpacing:"1.3px"}}>Empowering industries worldwide, Berk Ýigitler pioneers innovative chemical solutions. With a commitment to excellence, we drive progress and sustainability. Join us in shaping a brighter future through chemistry.</p>
                 </div>
                 <div className="divider-ver"></div>
                 <div className="about_text">

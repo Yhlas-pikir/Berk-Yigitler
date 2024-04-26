@@ -12,10 +12,7 @@
     padding-left: 0%;
   } 
 }
-.email > div{
-    font-size: 19px;
-    font-weight: bold;
-}
+
 .map_wrapper{
     display: flex;
     gap: 20px;

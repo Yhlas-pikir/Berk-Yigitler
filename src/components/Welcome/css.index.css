@@ -77,6 +77,7 @@
 }
 .des_txt{
     width: 75%;
+    letter-spacing: 1.3px;
     color: #1c1c1c; 
 }
 @media (max-width: 768px) {

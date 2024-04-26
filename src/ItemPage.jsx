@@ -10,6 +10,7 @@ import Clean from "./components_products/Clean/Clean";
 import Enzyme from "./components_products/Enzyme/Enzyme";
 import Aboutus from "./components/Aboutus/Aboutus";
 import All from "./components_products/All/All";
+import adhvs from "./assets/images/adhesives.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 import config from "./config.json";
 import React, { useEffect, useState } from "react";
@@ -45,23 +46,30 @@ function ItemPage() {
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
       <Navbar />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "90%",
-          alignSelf: "center",
-          marginTop: "20px",
-          marginBottom: "40px",
-        }}
-      >
-        <h2 style={{ textAlign: "left", marginBottom: 10 }}>
-          {data && data.name}
-        </h2>
-        {data.products &&
-          data.products.map((product) => (
-            <p style={{ fontSize: 20 }}>{product.name}</p>
-          ))}
+      <div className="obshiy" style={{width:"100%", display:"flex",justifyContent:"center"}}>
+        <div className="itemImageWrapepr">
+            
+            <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignSelf: "center",
+              textAlign: "center",
+              marginTop: "20px",
+            }}
+            className="itemText"
+          >
+            <h2 style={{ textAlign: "center", marginBottom: 10 }}>
+              {data && data.name}
+            </h2>
+            {data.products &&
+              data.products.map((product) => (
+                <p style={{ fontSize: 20 }}>{product.name}</p>
+              ))}
+          </div>
+          <img className="itemImage" src={adhvs} alt="" />
+
+        </div>
       </div>
       <Aboutus />
       <a href="tel:+99361471919">
