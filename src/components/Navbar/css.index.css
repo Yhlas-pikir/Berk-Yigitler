@@ -88,7 +88,8 @@
 }
 .navbar_lang_desk{
   position: absolute;
-  top: 78px;
+  top: 45px;
+  left: -4px;
   gap: 10px;
   display: none;
   flex-direction: column;
@@ -111,9 +112,14 @@
 .choose_mobile{
   display: none
 }
+.choose_desk{
+  position: relative;
+
+}
 @media (max-width: 768px) {
   .choose_mobile{
     display: block;
+    position: relative;
   }
   .choose_mobile > img{
     width: 24px;
@@ -129,7 +135,8 @@
 }
 .navbar_lang_desk{
   position: absolute;
-  top: 76px;
+  top: 44px;
+  left: -4px;
   gap: 10px;
   display: none;
   flex-direction: column;
@@ -140,7 +147,8 @@
 }
 .navbar_lang_mobile{
   position: absolute;
-  top: 126px;
+  top: 26px;
+  left: -2px;
   gap: 3px;
   display: none;
   flex-direction: column;
