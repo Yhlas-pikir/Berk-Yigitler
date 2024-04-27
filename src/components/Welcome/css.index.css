@@ -19,7 +19,6 @@
   } 
 }
 .welcome_image{
-    aspect-ratio: 16/10;
     position: relative;
 }
 @media (max-width: 768px) {
@@ -29,7 +28,7 @@
   }
 } 
 .welcome_image > img{
-    aspect-ratio: 16/13;
+    aspect-ratio: 16/1;
     height: 365px;
 }
 .welcome_text{
