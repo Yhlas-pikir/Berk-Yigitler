@@ -2,7 +2,7 @@ import "./css.index.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import config from "../../config.json";
-function Markets({ dataChange }) {
+function Markets({ dataChange, currentLanguage }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
@@ -41,11 +41,11 @@ function Markets({ dataChange }) {
               fontSize: "37px",
             }}
           >
-            {dataChange && dataChange.name}
+            {dataChange && dataChange.name[currentLanguage]}
           </p>
           <div className="divider1"></div>
           <p style={{ color: "#fff" }}>
-            {dataChange && dataChange.description}
+            {dataChange && dataChange.description[currentLanguage]}
           </p>
         </div>
       </div>
@@ -63,11 +63,11 @@ function Markets({ dataChange }) {
                   src={`${config.serverIP}:${config.serverPort}/${d.image}`}
                   alt=""
                 />
-                <div>{d.name}</div>
+                <div>{d.name[currentLanguage]}</div>
               </div>
               <div className="flip-card-back">
-                <h3> {d.name}</h3>
-                <p>{d.description}</p>
+                <h3> {d.name[currentLanguage]}</h3>
+                <p>{d.description[currentLanguage]}</p>
                 <div className="buttons">
                   <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
                     Learn More &#x25B6;

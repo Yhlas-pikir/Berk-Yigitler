@@ -10,7 +10,7 @@ import "./css.index.css";
 import "swiper/css/pagination";
 import config from "../../config.json";
 
-function Welcome() {
+function Welcome({ currentLanguage }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
@@ -25,16 +25,20 @@ function Welcome() {
       });
   };
 
+  console.log(data);
+
   useEffect(() => {
     GetData();
   }, []);
 
+  console.log(currentLanguage);
+
   return (
     <>
       <div className="welcome_wrapper_desk">
-      {data.map((d, index) => (
+        {data.map((d, index) => (
           <div key={index}>
-            <h1>{d.name}</h1>
+            <h1>{d.name[currentLanguage]}</h1>
             <Swiper
               modules={[Autoplay]}
               slidesPerView={2}
@@ -51,7 +55,7 @@ function Welcome() {
               {d.galleries.map((value, index) => (
                 <SwiperSlide key={index} className="section_slide">
                   <img
-                  style={{aspectRatio:"16/9"}}
+                    style={{ aspectRatio: "16/9" }}
                     src={`${config.serverIP}:${config.serverPort}/${value.image}`}
                     alt=""
                   />
@@ -65,9 +69,9 @@ function Welcome() {
       <div className="welcome_wrapper_mobile">
         {data.map((d, index) => (
           <div key={index}>
-            <h1>{d.name}</h1>
+            <h1>{d.name[currentLanguage]}</h1>
             <Swiper
-              modules={[ Autoplay]}
+              modules={[Autoplay]}
               slidesPerView={1}
               speed={600}
               spaceBetween={40}

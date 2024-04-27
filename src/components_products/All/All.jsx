@@ -4,7 +4,7 @@ import logo2 from "../../assets/images/logo2.png";
 import "./css.index.css";
 import config from "../../config.json";
 import React, { useEffect, useState } from "react";
-function All() {
+function All({ currentLanguage }) {
   const [data, SetData] = useState([]);
   const redirect = useNavigate();
 
@@ -34,7 +34,7 @@ function All() {
         {data.map((d) => (
           <Link to={`/products/${d.id}`} style={{ color: "#000" }}>
             <div className="all_element">
-              <p>{d.name}</p>
+              <p>{d.name[currentLanguage]}</p>
               <img
                 src={`${config.serverIP}:${config.serverPort}/${d.image}`}
                 alt=""

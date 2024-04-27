@@ -62,7 +62,7 @@ const Edit = () => {
                     type="text"
                     id="fname"
                     defaultValue={d.name}
-                    name={`${1}_name`}
+                    // name={`${d.na  me}_name`}
                   />
                 </div>
               </div>
@@ -73,7 +73,7 @@ const Edit = () => {
                 <div className="col-75">
                   <textarea
                     id="subject"
-                    name="description"
+                    // name={`${d}_description`}
                     style={{ height: "200px" }}
                     defaultValue={d.description}
                   ></textarea>

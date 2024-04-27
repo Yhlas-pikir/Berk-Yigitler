@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import config from "../../config.json";
 
 import { useEffect, useState } from "react";
-function SwiperWel() {
+function SwiperWel({ currentLanguage }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
@@ -49,8 +49,8 @@ function SwiperWel() {
               alt=""
             />
             <div>
-              <p>{d.name}</p>
-              {d.description}
+              <p>{d.name[currentLanguage]}</p>
+              {d.description[currentLanguage]}
               <div className="button">
                 <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
                   Learn More &#x25B6;

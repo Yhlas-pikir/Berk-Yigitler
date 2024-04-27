@@ -18,6 +18,8 @@ const List = () => {
       });
   };
 
+  console.log(data);
+
   useEffect(() => {
     GetData();
   }, []);
@@ -44,18 +46,40 @@ const List = () => {
                   if (col === "galleries") {
                     return (
                       <td key={i} style={{ overflow: "auto" }}>
-                        {row[col].map((value, i2) => (
-                          <img
-                            key={i2}
-                            height={"60px"}
-                            src={`${config.serverIP}:${config.serverPort}/${value.image}`}
-                            alt=""
-                          />
+                        {row[col] &&
+                          row[col].map((value, i2) => (
+                            <img
+                              key={i2}
+                              height={"60px"}
+                              src={`${config.serverIP}:${config.serverPort}/${value.image}`}
+                              alt=""
+                            />
+                          ))}
+                      </td>
+                    );
+                  } else if (col === "galleryTranslates") {
+                    return (
+                      <td key={i} style={{ overflow: "auto" }}>
+                        {row[col] &&
+                          row[col].map((value, i2) => (
+                            <div key={i2}>{value.name}</div>
+                          ))}
+                      </td>
+                    );
+                  } else if (col === "name") {
+                    return (
+                      <td key={i} style={{ overflow: "auto" }}>
+                        {Object.keys(row[col]).map((rc) => (
+                          <div>{rc} {row[col][rc]}</div>
                         ))}
                       </td>
                     );
                   } else {
-                    return <td key={i}>{row[col]}</td>;
+                    <td key={i} style={{ overflow: "auto" }}>
+                      {Object.keys(row[col]).map((rc) => {
+                        <div>{rc}</div>;
+                      })}
+                    </td>;
                   }
                 })}
                 <td style={{ cursor: "pointer" }}>
@@ -69,8 +93,9 @@ const List = () => {
                           {
                             method: "DELETE",
                           }
-                        );
-                        window.location.reload();
+                        ).then(() => {
+                          window.location.reload();
+                        });
                       }
                     }}
                     type="button"

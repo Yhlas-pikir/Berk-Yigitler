@@ -5,12 +5,11 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import { useNavigate, useParams } from "react-router-dom";
 import config from "./config.json";
 import React, { useEffect, useState } from "react";
-function ItemPage() {
+function ItemPage({ setCurrentLanguage, currentLanguage }) {
   const { id } = useParams();
 
   const [data, SetData] = useState({});
-  
-  const [image, SetImage] = useState();
+
   const redirect = useNavigate();
 
   const GetData = () => {
@@ -25,28 +24,27 @@ function ItemPage() {
       })
       .then((response) => {
         SetData(response);
-        console.log("-------------------------",response);
-        SetImage(response.image)
-        
-        console.log("-------------------------asd",image);
       })
       .catch((err) => console.log(err));
   };
+
+  console.log(data);
 
   useEffect(() => {
     GetData();
   }, []);
 
-
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <Navbar />
-      <div className="obshiy" style={{width:"100%", display:"flex",justifyContent:"center"}}>
+      <Navbar setCurrentLanguage={setCurrentLanguage} />
+      <div
+        className="obshiy"
+        style={{ width: "100%", display: "flex", justifyContent: "center" }}
+      >
         <div className="itemImageWrapepr">
-            
-            <div
+          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -57,15 +55,20 @@ function ItemPage() {
             className="itemText"
           >
             <h2 style={{ textAlign: "center", marginBottom: 10 }}>
-              {data && data.name}
+              {data && data.name && data.name[currentLanguage]}
             </h2>
             {data.products &&
-              data.products.map((product) => (
-                <p style={{ fontSize: 20 }}>{product.name}</p>
-              ))}
+              data.products.map((product) => {
+                if (product.language.code == currentLanguage) {
+                  return <p style={{ fontSize: 20 }}>{product.name}</p>;
+                }
+              })}
           </div>
-          <img className="itemImage" src={`${config.serverIP}:${config.serverPort}/${image}`} alt="" />
-
+          <img
+            className="itemImage"
+            src={`${config.serverIP}:${config.serverPort}/${data.image}`}
+            alt=""
+          />
         </div>
       </div>
       <Aboutus />

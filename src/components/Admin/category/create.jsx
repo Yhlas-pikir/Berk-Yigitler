@@ -44,7 +44,7 @@ const Create = (ddd) => {
       .catch((err) => {
         console.log(err);
       });
-    setLoading(true);
+    setLoading(false);
   };
 
   return (

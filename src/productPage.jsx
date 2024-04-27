@@ -3,18 +3,38 @@ import call from "./assets/images//call.png";
 import whatsapp from "./assets/images/whatsapp.webp";
 import Aboutus from "./components/Aboutus/Aboutus";
 import All from "./components_products/All/All";
+import { useEffect, useState } from "react";
+import config from "./config.json";
 
+function ProductPage({ currentLanguage, setCurrentLanguage }) {
+  const [data, SetData] = useState({});
 
-function ProductPage() {
+  const GetData = () => {
+    fetch(`${config.serverIP}:${config.serverPort}/main`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        SetData(response);
+      })
+      .catch((err) => console.log(err));
+  };
 
-
+  useEffect(() => {
+    GetData();
+  }, []);
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <Navbar />
-      <All />
-      <Aboutus />
+      <Navbar
+        currentLanguage={currentLanguage}
+        setCurrentLanguage={setCurrentLanguage}
+      />
+      <All currentLanguage={currentLanguage} />
+      <Aboutus data={data.footer} currentLanguage={currentLanguage} />
       <a href="tel:+99365644141">
         <div
           className="fixedcall"

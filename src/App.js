@@ -23,15 +23,50 @@ import AdminMainList from "./components/Admin/main/main.jsx";
 import Contact from "./contactPage.jsx";
 
 import ItemPage from "./ItemPage.jsx";
+import { useState } from "react";
 
 function App() {
+  const [currentLanguage, setCurrentLanguage] = useState("tm");
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<Homepage />} />
-        <Route path="/products" element={<ProductPage />} />
-        <Route path="/products/:id" element={<ItemPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
+        <Route
+          path="/*"
+          element={
+            <Homepage
+              currentLanguage={currentLanguage}
+              setCurrentLanguage={setCurrentLanguage}
+            />
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <ProductPage
+              setCurrentLanguage={setCurrentLanguage}
+              currentLanguage={currentLanguage}
+            />
+          }
+        />
+        <Route
+          path="/products/:id"
+          element={
+            <ItemPage
+              setCurrentLanguage={setCurrentLanguage}
+              currentLanguage={currentLanguage}
+            />
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <GalleryPage
+              setCurrentLanguage={setCurrentLanguage}
+              currentLanguage={currentLanguage}
+            />
+          }
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminPage />}>
           {/* <Route path="/" index element={<AdminMainList />} /> */}
@@ -46,9 +81,18 @@ function App() {
             <Route path=":id" element={<CategoryEdit />} />
           </Route>
           <Route path="product">
-            <Route index element={<ProductList />} />
-            <Route path="create" element={<ProductCreate />} />
-            <Route path=":id" element={<ProductEdit />} />
+            <Route
+              index
+              element={<ProductList currentLanguage={currentLanguage} />}
+            />
+            <Route
+              path="create"
+              element={<ProductCreate currentLanguage={currentLanguage} />}
+            />
+            <Route
+              path=":id"
+              element={<ProductEdit currentLanguage={currentLanguage} />}
+            />
           </Route>
           <Route path="gallery">
             <Route index element={<GalleryList />} />

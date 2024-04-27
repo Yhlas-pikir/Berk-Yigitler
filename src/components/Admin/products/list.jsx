@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import config from "../../../config.json";
 import { Link, useNavigate } from "react-router-dom";
 
-const List = () => {
+const List = ({ currentLanguage }) => {
   const [data, SetData] = useState([]);
   const redirect = useNavigate();
 
@@ -21,6 +21,8 @@ const List = () => {
   useEffect(() => {
     GetData();
   }, []);
+
+  console.log(data);
 
   return (
     <div>
@@ -63,8 +65,9 @@ const List = () => {
                           {
                             method: "DELETE",
                           }
-                        );
-                        window.location.reload();
+                        ).then((response) => {
+                          window.location.reload();
+                        });
                       }
                     }}
                     type="button"
@@ -75,7 +78,7 @@ const List = () => {
                     type="button"
                     className="edit-button"
                     onClick={() => {
-                      redirect(`/admin/product/${row.id}`);
+                      // redirect(`/admin/product/${row.id}`);
                     }}
                   >
                     Edit

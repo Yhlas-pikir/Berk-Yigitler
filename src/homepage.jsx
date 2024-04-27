@@ -10,7 +10,7 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import { useEffect, useState } from "react";
 import config from "./config.json";
 
-function Homepage() {
+function Homepage({ currentLanguage, setCurrentLanguage }) {
   const [data, SetData] = useState({});
 
   const GetData = () => {
@@ -33,12 +33,15 @@ function Homepage() {
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <Navbar />
-      <SwiperWel />
-      <Welcome data={data.welcome} />
-      <Markets dataChange={data.market} />
-      <Emailus data={data.mail} />
-      <MapPart data={data.map} />
+      <Navbar
+        currentLanguage={currentLanguage}
+        setCurrentLanguage={setCurrentLanguage}
+      />
+      <SwiperWel currentLanguage={currentLanguage} />
+      <Welcome data={data.welcome} currentLanguage={currentLanguage} />
+      <Markets dataChange={data.market} currentLanguage={currentLanguage} />
+      <Emailus data={data.mail} currentLanguage={currentLanguage} />
+      <MapPart data={data.map} currentLanguage={currentLanguage} />
       <a href="tel:+99365644141">
         <div
           className="fixedcall"
@@ -74,7 +77,7 @@ function Homepage() {
           alt=""
         />
       </a>
-      <Aboutus />
+      <Aboutus data={data.footer} currentLanguage={currentLanguage} />
     </div>
   );
 }

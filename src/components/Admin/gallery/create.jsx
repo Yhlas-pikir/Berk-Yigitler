@@ -1,11 +1,31 @@
 import { useNavigate } from "react-router-dom";
 import config from "../../../config.json";
 import Loading from "../loading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Create = () => {
   const redirect = useNavigate();
   let [loading, setLoading] = useState(false);
+
+  const [lang, SetLang] = useState([]);
+
+  const GetLanguage = () => {
+    fetch(`${config.serverIP}:${config.serverPort}/language`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        SetLang(response);
+      });
+  };
+
+  console.log(lang);
+
+  useEffect(() => {
+    GetLanguage();
+  }, []);
 
   const SendFrom = (e) => {
     e.preventDefault();
@@ -32,26 +52,23 @@ const Create = () => {
     <div className="container">
       <Loading value={loading} />
       <form onSubmit={SendFrom}>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="fname">Name</label>
+        {lang.map((l) => (
+          <div className="row">
+            <h1>{l.name}</h1>
+            <div className="col-25">
+              <label htmlFor="fname">Name</label>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                className="adtext"
+                id="fname"
+                name={l.id + "_name"}
+              />
+            </div>
           </div>
-          <div className="col-75">
-            <input type="text" id="fname" name="name" />
-          </div>
-        </div>
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Description</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="description"
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
+        ))}
+
         <div className="row">
           <div className="col-25">
             <label htmlFor="limage">Image</label>
@@ -66,32 +83,7 @@ const Create = () => {
             />
           </div>
         </div>
-        {/* 
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="categoryId">
-              {data.map((d) => (
-                <option value={d.id}>{d.name}</option>
-              ))}
-            </select>
-          </div>
-        </div> */}
+
         <br />
         <div className="row">
           <input type="submit" />

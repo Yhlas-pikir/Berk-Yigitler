@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import config from "../../../config.json";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -81,8 +81,9 @@ const List = () => {
                           {
                             method: "DELETE",
                           }
-                        );
-                        window.location.reload();
+                        ).then((response) => {
+                          window.location.reload();
+                        });
                       }
                     }}
                     type="button"
@@ -93,7 +94,7 @@ const List = () => {
                     type="button"
                     className="edit-button"
                     onClick={() => {
-                      redirect(`/admin/category/${row.id}`);
+                      // redirect(`/admin/category/${row.id}`);
                     }}
                   >
                     Edit
