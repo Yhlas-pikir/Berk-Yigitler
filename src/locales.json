@@ -1,0 +1,64 @@
+{
+  "en": {
+    "Home": "Home",
+    "Products": "Products",
+    "Gallery": "Gallery",
+    "Contact us": "Contact us",
+    "Our Products": "Our Products",
+    "Bizimle iletisme gecin": "Contact us",
+    "We're here to help! Whether you have a question, need support, or want to provide feedback, we'd love to hear from you.": "We're here to help! Whether you have a question, need support, or want to provide feedback, we'd love to hear from you.",
+    "Your Name": "Your Name",
+    "Your Email": "Your Email",
+    "Your Number": "Your Number",
+    "Your Message": "Your Message",
+    "Send Message": "Send Message",
+    "Learn More": "All"
+  },
+  "tm": {
+    "Home": "Baş sahypa",
+    "Products": "Önümler",
+    "Gallery": "Galereýa",
+    "Contact us": "Habarlaşmak",
+    "Our Products": "Önümlerimiz",
+    "Bizimle iletisme gecin": "Biz bilen habarlaşyň",
+    "We're here to help! Whether you have a question, need support, or want to provide feedback, we'd love to hear from you.": "Biz kömek etmek üçin geldik! Soragyňyz bar bolsa, goldawa mätäç bolsaňyz ýa-da jogap bermek isleseňiz, biz sizden eşitmek isleýäris.",
+    "Your Name": "Adyňyz",
+    "Your Email": "Siziň emailiňiz",
+    "Your Number": "Siziň belgiňiz",
+    "Your message": "Habaryňyz",
+    "Send Message": "Habar iber",
+    "Learn More": "Ählisi üçin"
+  },
+  "tr": {
+    "Home": "Ana sayfa",
+    "Products": "Ürünler",
+    "Gallery": "Galeri",
+    "Contact us": "Ulaşmak",
+    "Our Products": "Bizim ürünlerimiz",
+    "Bizimle iletisme gecin": "Bizimle iletisme gecin",
+    "We're here to help! Whether you have a question, need support, or want to provide feedback, we'd love to hear from you.": "Yardım etmek için buradayız! Bir sorunuz varsa, desteğe ihtiyacınız varsa veya geri bildirimde bulunmak istiyorsanız, sizden haber almak isteriz.",
+    "Your Name": "Adınız",
+    "Your Email": "E-posta adresiniz",
+    "Your Number": "Numaran",
+    "Your message": "Mesajın",
+
+    "Send Message": "Mesaj gönder",
+    "Learn More": "Hepsi"
+  },
+  "ru": {
+    "Home": "Главная",
+    "Products": "Продукты",
+    "Gallery": "Галерея",
+    "Contact us": "Связаться",
+    "Our Products": "Наши продукты",
+    "Bizimle iletisme gecin": "Связаться с нами",
+    "We're here to help! Whether you have a question, need support, or want to provide feedback, we'd love to hear from you.": "Мы здесь, чтобы помочь! Если у вас есть вопрос, вам нужна поддержка или вы хотите оставить отзыв, мы будем рады услышать ваше мнение.",
+    "Your Name": "Ваше имя",
+    "Your Email": "Ваш адрес электронной почты",
+    "Your Number": "Твой номер",
+    "Your message": "Ваше сообщение",
+    "Send Message": "Отправить",
+
+    "Learn More": "Все"
+  }
+}

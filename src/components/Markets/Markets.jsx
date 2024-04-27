@@ -2,6 +2,7 @@ import "./css.index.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import config from "../../config.json";
+import locales from "../../locales.json";
 function Markets({ dataChange, currentLanguage }) {
   const [data, SetData] = useState([]);
 
@@ -68,11 +69,13 @@ function Markets({ dataChange, currentLanguage }) {
               <div className="flip-card-back">
                 <h3> {d && d.name[currentLanguage]}</h3>
                 <p>{d.description[currentLanguage]}</p>
-                <div className="buttons">
-                  <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
-                    Learn More &#x25B6;
-                  </Link>
-                </div>
+                
+                <Link className="buttons" to={`/products/${d.id}`} style={{ color: "#fff" }}>
+                  {locales[currentLanguage||'tm']['Learn More']||'Learn More'}
+                   &#x25B6;
+                </Link>
+                  
+                
               </div>
             </div>
           </div>

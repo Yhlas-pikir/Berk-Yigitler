@@ -15,7 +15,7 @@ function GalleryPage({ currentLanguage, setCurrentLanguage }) {
         currentLanguage={currentLanguage}
       />
       <Welcome currentLanguage={currentLanguage} />
-      <Aboutus />
+      <Aboutus currentLanguage={currentLanguage} />
       <a href="tel:+99365644141">
         <div
           className="fixedcall"

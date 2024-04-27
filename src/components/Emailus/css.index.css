@@ -8,15 +8,19 @@
     font-weight: bold;
 }
 .emailus_wrapper{
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
     justify-content: center;
+    align-items: center;
     width: 97%;
 margin-top: 30px;
 overflow: hidden;
 }
 @media (max-width: 768px) {
     .emailus_wrapper {
+    display: flex;
     flex-direction: column;
   }
 } 
@@ -30,9 +34,11 @@ overflow: hidden;
     }
   } 
 .emailus_image > img{
-    aspect-ratio: 16/9  ;
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
     right: 0;
-    height: 500px;
+    /* height: 500px; */
     padding-bottom: 20px;
 }
 @media (max-width: 768px) {
@@ -53,7 +59,7 @@ overflow: hidden;
     color: #1c1c1c;
 }
 .form{
-    width: 48vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

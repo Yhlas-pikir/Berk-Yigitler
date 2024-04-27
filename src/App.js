@@ -23,11 +23,14 @@ import AdminMainList from "./components/Admin/main/main.jsx";
 import Contact from "./contactPage.jsx";
 
 import ItemPage from "./ItemPage.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState("tm");
-
+  // const {pathname} = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <BrowserRouter>
       <Routes>

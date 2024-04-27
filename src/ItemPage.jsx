@@ -11,7 +11,8 @@ function ItemPage({ setCurrentLanguage, currentLanguage }) {
   const [data, SetData] = useState({});
 
   const redirect = useNavigate();
-
+  useEffect(() => {
+  }, [])
   const GetData = () => {
     fetch(
       `${config.serverIP}:${config.serverPort}/category/${id}?products=true`,
@@ -32,13 +33,14 @@ function ItemPage({ setCurrentLanguage, currentLanguage }) {
 
   useEffect(() => {
     GetData();
+    window.scrollTo(0, 0)
   }, []);
 
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <Navbar setCurrentLanguage={setCurrentLanguage} />
+      <Navbar currentLanguage={currentLanguage} setCurrentLanguage={setCurrentLanguage} />
       <div
         className="obshiy"
         style={{ width: "100%", display: "flex", justifyContent: "center" }}
@@ -71,7 +73,7 @@ function ItemPage({ setCurrentLanguage, currentLanguage }) {
           />
         </div>
       </div>
-      <Aboutus />
+      <Aboutus currentLanguage={currentLanguage} />
       <a href="tel:+99365644141">
         <div
           className="fixedcall"

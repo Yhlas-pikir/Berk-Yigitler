@@ -36,12 +36,12 @@ function Welcome({ currentLanguage }) {
   return (
     <>
       <div className="welcome_wrapper_desk">
-        {data.map((d, index) => (
-          <div key={index}>
-            <h1>{d && d.name[currentLanguage]}</h1>
+        {data?.map((d, index) => (
+          <div key={index} >
+            <h1 style={{marginBottom:'13px',marginTop:'5px'}}>{d && d?.name[currentLanguage]}</h1>
             <Swiper
               modules={[Autoplay]}
-              slidesPerView={2}
+              slidesPerView={3}
               speed={600}
               spaceBetween={40}
               autoplay={{
@@ -50,12 +50,12 @@ function Welcome({ currentLanguage }) {
               }}
               loop={true}
               className="section_slider"
-              style={{ margin: "auto", left: 0, right: 0 }}
+              // style={{ margin: "auto", left: 0, right: 0 }}
             >
               {d.galleries.map((value, index) => (
                 <SwiperSlide key={index} className="section_slide">
                   <img
-                    style={{ aspectRatio: "16/9" }}
+                    style={{ width:'100%',height:'100%',objectFit: "cover" , aspectRatio: "16/9" }}
                     src={`${config.serverIP}:${config.serverPort}/${value.image}`}
                     alt=""
                   />
@@ -69,7 +69,7 @@ function Welcome({ currentLanguage }) {
       <div className="welcome_wrapper_mobile">
         {data.map((d, index) => (
           <div key={index}>
-            <h1>{d && d.name[currentLanguage]}</h1>
+            <h1 style={{marginBottom:'13px',marginTop:'35px'}}>{d && d?.name[currentLanguage]}</h1>
             <Swiper
               modules={[Autoplay]}
               slidesPerView={1}
@@ -86,6 +86,8 @@ function Welcome({ currentLanguage }) {
                 <SwiperSlide key={index} className="section_slide">
                   <img
                     src={`${config.serverIP}:${config.serverPort}/${value.image}`}
+                    style={{ width:'100%',height:'100%',objectFit: "cover" , aspectRatio: "16/9" }}
+
                     alt=""
                   />
                 </SwiperSlide>

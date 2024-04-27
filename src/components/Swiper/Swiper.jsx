@@ -5,6 +5,7 @@ import "./css.index.css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import config from "../../config.json";
+import locales from "../../locales.json";
 
 import { useEffect, useState } from "react";
 function SwiperWel({ currentLanguage }) {
@@ -51,11 +52,10 @@ function SwiperWel({ currentLanguage }) {
             <div>
               <p>{d && d.name[currentLanguage]}</p>
               {d && d.description[currentLanguage]}
-              <div className="button">
-                <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
-                  Learn More &#x25B6;
+                <Link className="button" to={`/products/${d.id}`} style={{ color: "#fff" }}>
+                  {locales[currentLanguage||'tm']['Learn More']||'Learn More'}
+                   &#x25B6;
                 </Link>
-              </div>
             </div>
           </SwiperSlide>
         ))}

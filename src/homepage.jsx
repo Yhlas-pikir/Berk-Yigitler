@@ -12,19 +12,19 @@ import config from "./config.json";
 
 function Homepage({ currentLanguage, setCurrentLanguage }) {
   const [data, SetData] = useState({});
-
   const GetData = () => {
     fetch(`${config.serverIP}:${config.serverPort}/main`, {
       method: "GET",
     })
-      .then(async (response) => {
-        return await response.json();
-      })
-      .then((response) => {
-        SetData(response);
-      })
-      .catch((err) => console.log(err));
+    .then(async (response) => {
+      return await response.json();
+    })
+    .then((response) => {
+      SetData(response);
+    })
+    .catch((err) => console.log(err));
   };
+  
 
   useEffect(() => {
     GetData();

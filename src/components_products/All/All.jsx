@@ -3,6 +3,7 @@ import adhs from "../../assets/images/adhesives.jpg";
 import logo2 from "../../assets/images/logo2.png";
 import "./css.index.css";
 import config from "../../config.json";
+import locales from "../../locales.json"
 import React, { useEffect, useState } from "react";
 function All({ currentLanguage }) {
   const [data, SetData] = useState([]);
@@ -29,7 +30,11 @@ function All({ currentLanguage }) {
 
   return (
     <>
-      <h1 style={{ textAlign: "center", marginTop: 20 }}>Our Products</h1>
+      <h1 style={{ textAlign: "center", marginTop: 20 }}>
+            {locales[currentLanguage||'tm']['Our Products']||'Our Products'}
+        {/* Our Products */}
+      
+      </h1>
       <div className="all_wrapper">
         {data.map((d) => (
           <Link to={`/products/${d.id}`} style={{ color: "#000" }}>

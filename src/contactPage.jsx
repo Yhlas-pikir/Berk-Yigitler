@@ -11,7 +11,7 @@ function ContactPage({ setCurrentLanguage, currentLanguage }) {
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
       <Navbar setCurrentLanguage={setCurrentLanguage}  currentLanguage={currentLanguage}/>
-      <MapEmail />
+      <MapEmail currentLanguage={currentLanguage} />
       <a href="tel:+99365644141">
         <div
           className="fixedcall"
@@ -47,7 +47,7 @@ function ContactPage({ setCurrentLanguage, currentLanguage }) {
           alt=""
         />
       </a>
-      <Aboutus />
+      <Aboutus currentLanguage={currentLanguage} />
     </div>
   );
 }

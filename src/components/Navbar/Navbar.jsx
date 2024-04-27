@@ -8,7 +8,9 @@ import en from "../../assets/images/en_lang.png";
 import tr from "../../assets/images/tr_lang.png";
 import choose from "../../assets/images/choose.png";
 import { Link } from "react-router-dom";
+import locales from "../../locales.json"
 function Navbar({ currentLanguage, setCurrentLanguage }) {
+  console.log(locales,currentLanguage)
   // setCurrentLanguage("tr");
 
   const [is, setIs] = useState(true);
@@ -41,7 +43,7 @@ function Navbar({ currentLanguage, setCurrentLanguage }) {
             }
             id="/home"
           >
-            Home
+            {locales[currentLanguage||'tm']['Home']||'Home'}
           </div>{" "}
         </Link>
         <Link to={"/products"} style={{ color: "black" }}>
@@ -55,7 +57,8 @@ function Navbar({ currentLanguage, setCurrentLanguage }) {
             }
             id="/products"
           >
-            Products
+            {locales[currentLanguage||'tm']['Products']||'Products'}
+          
           </div>
         </Link>
         <Link to={"/gallery"} style={{ color: "black" }}>
@@ -66,7 +69,9 @@ function Navbar({ currentLanguage, setCurrentLanguage }) {
             }
             id="/gallery"
           >
-            Gallery
+            
+            {locales[currentLanguage||'tm']['Gallery']||'Gallery'}
+
           </div>
         </Link>
         <Link to={"/contact"} style={{ color: "black" }}>
@@ -77,7 +82,7 @@ function Navbar({ currentLanguage, setCurrentLanguage }) {
             }
             id="/contact"
           >
-            Contact us
+            {locales[currentLanguage||'tm']['Contact us']||'Contact us'}
           </div>
         </Link>
         <div className="choose_mobile" onClick={() => ToggleHiddenM()}>

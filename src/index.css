@@ -25,6 +25,10 @@
   }
 }
 @media (max-width:941px) {
+  .obshiy{
+  align-items: start !important;
+
+  }
   .itemImage{
     display: none;
   }

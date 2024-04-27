@@ -58,7 +58,7 @@ function Aboutus({ currentLanguage }) {
               letterSpacing: "1.3px",
             }}
           >
-            {data && data.description[currentLanguage]}s
+            {data && data.description[currentLanguage]}
           </p>
         </div>
         <div className="divider-ver"></div>
