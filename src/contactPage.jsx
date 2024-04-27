@@ -34,8 +34,8 @@ function ContactPage() {
       <a href="https://wa.me/99365644141">
         <img
           style={{
-            height: 65,
-            width: 65,
+            height: 55,
+            width: 55,
             position: "fixed",
             bottom: 24,
             right: 10,
