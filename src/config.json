@@ -1,5 +1,5 @@
 {
-  "serverIP2": "http://216.250.9.97",
-  "serverIP": "http://localhost",
+  "serverIP": "http://216.250.9.97",
+  "serverIP2": "http://localhost",
   "serverPort": 4000
 }

@@ -63,10 +63,10 @@ function Markets({ dataChange, currentLanguage }) {
                   src={`${config.serverIP}:${config.serverPort}/${d.image}`}
                   alt=""
                 />
-                <div>{d.name[currentLanguage]}</div>
+                <div>{d && d.name[currentLanguage]}</div>
               </div>
               <div className="flip-card-back">
-                <h3> {d.name[currentLanguage]}</h3>
+                <h3> {d && d.name[currentLanguage]}</h3>
                 <p>{d.description[currentLanguage]}</p>
                 <div className="buttons">
                   <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>

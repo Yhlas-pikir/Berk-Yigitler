@@ -49,8 +49,8 @@ function SwiperWel({ currentLanguage }) {
               alt=""
             />
             <div>
-              <p>{d.name[currentLanguage]}</p>
-              {d.description[currentLanguage]}
+              <p>{d && d.name[currentLanguage]}</p>
+              {d && d.description[currentLanguage]}
               <div className="button">
                 <Link to={`/products/${d.id}`} style={{ color: "#fff" }}>
                   Learn More &#x25B6;

@@ -61,7 +61,7 @@ const Edit = () => {
                   <input
                     type="text"
                     id="fname"
-                    defaultValue={d.name}
+                    defaultValue={d && d.name}
                     // name={`${d.na  me}_name`}
                   />
                 </div>
