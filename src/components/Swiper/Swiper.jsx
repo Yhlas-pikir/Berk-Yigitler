@@ -31,7 +31,7 @@ function SwiperWel({ currentLanguage }) {
     <div className="swiper_wrapper">
       <Swiper
         modules={[Pagination, Autoplay]}
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
         slidesPerView={1}
         speed={600}
         spaceBetween={30}

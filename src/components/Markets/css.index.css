@@ -158,7 +158,14 @@
     filter: brightness(40%);
     height: 100%;
   }
-
+  .cell1_txt > p{
+    font-size: 20px;
+  }
+  @media (max-width: 768px) {
+    .cell1_txt > p{
+      font-size: 18px;
+    }
+}
   
   .flip-card-front {
     background-color: #bbb;

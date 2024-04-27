@@ -13,7 +13,10 @@
 }
 
 .map_wrapper{
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    
     gap: 20px;
     margin-top: 30px;
     width: 97%;
@@ -42,7 +45,8 @@
 .map_image > img{
     aspect-ratio: 16/9  ;
     right: 0;
-    height: 500px;
+    width: 100%;
+    /* height: 500px; */
     padding-bottom: 20px;
 }
     @media (max-width: 768px) {

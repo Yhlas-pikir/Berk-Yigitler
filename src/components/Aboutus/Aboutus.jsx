@@ -71,7 +71,7 @@ function Aboutus({ currentLanguage }) {
               height={25}
               alt=""
             />
-            <p style={{ color: "gray" }}>: {data && data.mail}</p>
+            <p style={{ color: "gray" }}>: {data && data?.mail?.undefined}</p>
           </div>
           <div>
             <img
@@ -81,7 +81,7 @@ function Aboutus({ currentLanguage }) {
               height={25}
               alt=""
             />
-            <p style={{ color: "gray" }}>: {data && data.phone}</p>
+            <p style={{ color: "gray" }}>: {data && data?.phone?.undefined}</p>
           </div>
           <div>
             <img
@@ -113,15 +113,10 @@ function Aboutus({ currentLanguage }) {
         <div className="divider"></div>
         <p style={{ color: "coral" }}>GMAIL</p>
         <p style={{ color: "gray", width: "85%", textAlign: "center" }}>
-          {data && data.mail}
+          {data && data?.mail?.undefined}
         </p>
         <p style={{ color: "#216FB4", marginTop: "20px" }}>PHONE</p>
-        {data &&
-          data.phone.split(", ").map((phone) => (
-            <a href={`tel:%${phone}`}>
-              <p style={{ color: "gray", textAlign: "center" }}>{phone}</p>
-            </a>
-          ))}
+              <p style={{ color: "gray", textAlign: "center" }}>{data?.phone?.undefined}</p>
 
         <p style={{ color: "#E93E3A", marginTop: "20px" }}>ADRESS</p>
         <p
