@@ -67,7 +67,15 @@ function App() {
             />
           }
         />
-        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/contact"
+          element={
+            <Contact
+              setCurrentLanguage={setCurrentLanguage}
+              currentLanguage={currentLanguage}
+            />
+          }
+        />
         <Route path="/admin" element={<AdminPage />}>
           {/* <Route path="/" index element={<AdminMainList />} /> */}
           <Route path="main">
