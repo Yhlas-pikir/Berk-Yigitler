@@ -29,11 +29,12 @@ function Emailus({ data }) {
   };
 
   return (
+    <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
     <div className="emailus_wrapper">
       <div className="emailus_image">
         <img
           src={`${config.serverIP}:${config.serverPort}/${data && data.image}`}
-          width={"98%"}
+          
           alt=""
         />
       </div>
@@ -73,6 +74,7 @@ function Emailus({ data }) {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 }

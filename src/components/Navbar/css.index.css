@@ -149,7 +149,7 @@
   position: absolute;
   top: 26px;
   left: -2px;
-  gap: 3px;
+  gap: 8px;
   display: none;
   flex-direction: column;
   background-color: #a7a1a1;

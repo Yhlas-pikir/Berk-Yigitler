@@ -13,6 +13,7 @@
     justify-content: center;
     width: 97%;
 margin-top: 30px;
+overflow: hidden;
 }
 @media (max-width: 768px) {
     .emailus_wrapper {
@@ -29,7 +30,7 @@ margin-top: 30px;
     }
   } 
 .emailus_image > img{
-    aspect-ratio: 16/13  ;
+    aspect-ratio: 16/9  ;
     right: 0;
     height: 500px;
     padding-bottom: 20px;

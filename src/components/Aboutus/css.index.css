@@ -24,6 +24,7 @@
     align-items: flex-end;
     margin-bottom: 0;
     height: fit-content; 
+    padding-bottom: 40px;
 }
 .about_desk > .esas {
     display: flex;
