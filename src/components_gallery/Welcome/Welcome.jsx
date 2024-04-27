@@ -38,7 +38,7 @@ function Welcome({ currentLanguage }) {
       <div className="welcome_wrapper_desk">
         {data.map((d, index) => (
           <div key={index}>
-            <h1>{d.name[currentLanguage]}</h1>
+            <h1>{d && d.name[currentLanguage]}</h1>
             <Swiper
               modules={[Autoplay]}
               slidesPerView={2}
@@ -69,7 +69,7 @@ function Welcome({ currentLanguage }) {
       <div className="welcome_wrapper_mobile">
         {data.map((d, index) => (
           <div key={index}>
-            <h1>{d.name[currentLanguage]}</h1>
+            <h1>{d && d.name[currentLanguage]}</h1>
             <Swiper
               modules={[Autoplay]}
               slidesPerView={1}

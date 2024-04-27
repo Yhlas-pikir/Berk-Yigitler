@@ -106,24 +106,7 @@ const Edit = () => {
             s/>
           </div>
         </div>
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="categoryId">
-              {data &&
-                data2.map((d) => {
-                  if (d.id === data.categoryId) {
-                    return <option value={d.id}>{d.name}</option>;
-                  } else {
-                    return <option value={d.id}>{d.name}</option>;
-                  }
-                })}
-            </select>
-          </div>
-        </div> */}
-        <br />
+        
         <div className="row">
           <input type="submit" />
         </div>

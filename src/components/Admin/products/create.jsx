@@ -92,7 +92,7 @@ const Create = ({ currentLanguage }) => {
           <div className="col-75">
             <select id="country" name="categoryId">
               {data.map((d) => (
-                <option value={d.id}>{d.name[currentLanguage]}</option>
+                <option value={d.id}>{d && d.name[currentLanguage]}</option>
               ))}
             </select>
           </div>

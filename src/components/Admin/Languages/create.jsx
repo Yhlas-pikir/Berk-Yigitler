@@ -49,52 +49,6 @@ const Create = () => {
             <input type="text" className="adtext" id="fname" name="code" />
           </div>
         </div>
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Description</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="description"
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="limage">Image</label>
-          </div>
-          <div className="col-75">
-            <input type="file" accept="image/*" id="limage" name="image" accept="" />
-          </div>
-        </div> */}
-        {/* 
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="categoryId">
-              {data.map((d) => (
-                <option value={d.id}>{d.name}</option>
-              ))}
-            </select>
-          </div>
-        </div> */}
         <br />
         <div className="row">
           <input type="submit" className="adsub" />
