@@ -1,16 +1,18 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import MapEmail from './components_contact/MapEmail/MapEmail'
-import Aboutus from './components/Aboutus/Aboutus'
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
+import MapEmail from "./components_contact/MapEmail/MapEmail";
+import Aboutus from "./components/Aboutus/Aboutus";
 
 import call from "./assets/images//call.png";
 import whatsapp from "./assets/images/whatsapp.webp";
-function ContactPage() {
+function ContactPage({ setCurrentLanguage, currentLanguage }) {
   return (
-    <div style={{display:'flex', flexDirection:"column",minHeight: "100vh"}}>
-        <Navbar />
-        <MapEmail />
-        <a href="tel:+99365644141">
+    <div
+      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+    >
+      <Navbar setCurrentLanguage={setCurrentLanguage}  currentLanguage={currentLanguage}/>
+      <MapEmail />
+      <a href="tel:+99365644141">
         <div
           className="fixedcall"
           style={{
@@ -45,9 +47,9 @@ function ContactPage() {
           alt=""
         />
       </a>
-        <Aboutus/>
+      <Aboutus />
     </div>
-  )
+  );
 }
 
-export default ContactPage
+export default ContactPage;

@@ -25,10 +25,6 @@ function Aboutus({ currentLanguage }) {
     phone: "",
   });
 
-  console.log("url", currentLanguage);
-
-  console.log(`${config.serverIP}:${config.serverPort}/main`);
-
   const GetData = () => {
     fetch(`${config.serverIP}:${config.serverPort}/main`, {
       method: "GET",
@@ -41,6 +37,8 @@ function Aboutus({ currentLanguage }) {
       })
       .catch((err) => console.log(err));
   };
+
+  console.log(data);
 
   useEffect(() => {
     GetData();
@@ -60,7 +58,6 @@ function Aboutus({ currentLanguage }) {
               letterSpacing: "1.3px",
             }}
           >
-            {console.log("sdfsd", data, data.description, currentLanguage)}
             {data && data.description[currentLanguage]}s
           </p>
         </div>
