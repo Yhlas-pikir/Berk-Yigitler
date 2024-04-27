@@ -20,10 +20,10 @@ const SideBar = () => {
       name: "gallery",
       link: "/admin/gallery",
     },
-    // {
-    //   name: "language",
-    //   link: "/admin/language",
-    // },
+    {
+      name: "language",
+      link: "/admin/language",
+    },
   ];
   return (
     <div className="sidebar">

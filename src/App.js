@@ -15,6 +15,10 @@ import GalleryCreate from "./components/Admin/gallery/create";
 import GalleryList from "./components/Admin/gallery/list";
 import GalleryEdit from "./components/Admin/gallery/edit";
 
+import LanguageCreate from "./components/Admin/Languages/create";
+import LanguageList from "./components/Admin/Languages/list";
+import LanguageEdit from "./components/Admin/Languages/edit";
+
 import AdminMainList from "./components/Admin/main/main.jsx";
 import Contact from "./contactPage.jsx";
 
@@ -51,10 +55,11 @@ function App() {
             <Route path="create" element={<GalleryCreate />} />
             <Route path=":id" element={<GalleryEdit />} />
           </Route>
-          {/* <Route path="language">
-            <Route index element={<LangList />} />
-            <Route path="create" element={<LangCreate />} />
-          </Route> */}
+          <Route path="language">
+            <Route index element={<LanguageList />} />
+            <Route path="create" element={<LanguageCreate />} />
+            <Route path=":id" element={<LanguageEdit />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

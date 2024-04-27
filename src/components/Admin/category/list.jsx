@@ -22,6 +22,8 @@ const List = () => {
     GetData();
   }, []);
 
+  console.log(data);
+
   return (
     <div>
       <div style={{ display: "flex" }}>
@@ -52,7 +54,20 @@ const List = () => {
                       </td>
                     );
                   } else {
-                    return <td>{row[col]}</td>;
+                    return (
+                      <td>
+                        {Object.keys(row[col]).map((key) => (
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td>{key}</td>
+                                <td>{row[col][key]}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        ))}
+                      </td>
+                    );
                   }
                 })}
                 <td style={{ cursor: "pointer" }}>

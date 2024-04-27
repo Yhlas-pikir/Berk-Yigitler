@@ -23,7 +23,7 @@ const Edit = () => {
   useEffect(() => {
     GetData();
   }, []);
-
+  console.log(data);
   const SendFrom = (e) => {
     e.preventDefault();
 
@@ -49,65 +49,47 @@ const Edit = () => {
     <div className="container">
       <Loading value={loading} />
       <form onSubmit={SendFrom}>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="fname">Name</label>
-          </div>
-          <div className="col-75">
-            <input
-              type="text"
-              id="fname"
-              defaultValue={data.name}
-              name="name"
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Description</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="description"
-              style={{ height: "200px" }}
-              defaultValue={data.description}
-            ></textarea>
-          </div>
-        </div>
+        {data &&
+          data.categoryTranslates &&
+          data.categoryTranslates.map((d) => (
+            <div>
+              <div className="row">
+                <div className="col-25">
+                  <label htmlFor="fname">Name</label>
+                </div>
+                <div className="col-75">
+                  <input
+                    type="text"
+                    id="fname"
+                    defaultValue={d.name}
+                    name={`${1}_name`}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-25">
+                  <label htmlFor="subject">Description</label>
+                </div>
+                <div className="col-75">
+                  <textarea
+                    id="subject"
+                    name="description"
+                    style={{ height: "200px" }}
+                    defaultValue={d.description}
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          ))}
+
         <div className="row">
           <div className="col-25">
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-            <input type="file" accept="image/*" id="limage" name="image" accept="" />
+            <input type="file" accept="image/*" id="limage" name="image" />
           </div>
         </div>
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="country">
-              <option value="australia">Australia</option>
-              <option value="canada">Canada</option>
-              <option value="usa">USA</option>
-            </select>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
         <br />
         <div className="row">
           <input type="submit" />

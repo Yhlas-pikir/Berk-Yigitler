@@ -1,18 +1,37 @@
 import { useNavigate } from "react-router-dom";
-import server from "../../../config.json";
+import config from "../../../config.json";
 import Loading from "../loading";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Create = (ddd) => {
   const redirect = useNavigate();
-
   let [loading, setLoading] = useState(false);
+
+  const [lang, SetLang] = useState([]);
+
+  const GetLanguage = () => {
+    fetch(`${config.serverIP}:${config.serverPort}/language`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        SetLang(response);
+      });
+  };
+
+  useEffect(() => {
+    GetLanguage();
+  }, []);
+
+  console.log(lang);
 
   const SendFrom = (e) => {
     e.preventDefault();
     setLoading(true);
     const data = new FormData(e.target);
-    fetch(`${server.serverIP}:${server.serverPort}/category`, {
+    fetch(`${config.serverIP}:${config.serverPort}/category`, {
       method: "POST",
       body: data,
     })
@@ -32,32 +51,59 @@ const Create = (ddd) => {
     <div className="container">
       <Loading value={loading} />
       <form onSubmit={SendFrom}>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="fname">Name</label>
-          </div>
-          <div className="col-75">
-            <input type="text" id="fname" name="name" />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Description</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="description"
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div>
+        {lang &&
+          lang.map((l, i) => (
+            <div
+              key={i}
+              style={{
+                border: "1px solid #a1a1a1",
+                margin: "1px",
+                padding: "5px",
+                borderRadius: "2%",
+              }}
+            >
+              <div className="row">
+                <h2>{l.name}</h2>
+                <div className="col-25">
+                  <label htmlFor="fname">Name</label>
+                </div>
+                <div className="col-75">
+                  <input
+                    required
+                    type="text"
+                    id="fname"
+                    name={`${l.id}_name`}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-25">
+                  <label htmlFor="subject">Description</label>
+                </div>
+                <div className="col-75">
+                  <textarea
+                    id="subject"
+                    required
+                    name={`${l.id}_description`}
+                    style={{ height: "200px" }}
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          ))}
+
         <div className="row">
           <div className="col-25">
             <label htmlFor="limage">Image</label>
           </div>
           <div className="col-75">
-            <input type="file" accept="image/*" id="limage" name="image" accept="" />
+            <input
+              type="file"
+              required
+              accept="image/*"
+              id="limage"
+              name="image"
+            />
           </div>
         </div>
         {/* <div className="row">

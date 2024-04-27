@@ -94,7 +94,7 @@ const Create = () => {
         </div> */}
         <div className="row">
           <div className="col-25">
-            <label htmlFor="country">Country</label>
+            <label htmlFor="country">Category</label>
           </div>
           <div className="col-75">
             <select id="country" name="categoryId">
