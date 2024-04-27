@@ -77,7 +77,7 @@ function Homepage({ currentLanguage, setCurrentLanguage }) {
           alt=""
         />
       </a>
-      <Aboutus data={data.footer} currentLanguage={currentLanguage} />
+      <Aboutus data={data?.footer} currentLanguage={currentLanguage} />
     </div>
   );
 }

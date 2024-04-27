@@ -5,7 +5,47 @@ import mail from "../../assets/images/mail.png";
 import loc from "../../assets/images/loc.png";
 
 import call from "../../assets/images/call.png";
-function Aboutus({ data, currentLanguage }) {
+import config from "../../config.json";
+
+import { useEffect, useState } from "react";
+function Aboutus({ currentLanguage }) {
+  const [data, SetData] = useState({
+    description: {
+      tm: "",
+      en: "",
+      tr: "",
+      ru: "",
+    },
+    location: {
+      tm: "",
+      en: "",
+      tr: "",
+      ru: "",
+    },
+    phone: "",
+  });
+
+  console.log("url", currentLanguage);
+
+  console.log(`${config.serverIP}:${config.serverPort}/main`);
+
+  const GetData = () => {
+    fetch(`${config.serverIP}:${config.serverPort}/main`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        SetData(response.footer);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    GetData();
+  }, []);
+
   return (
     <>
       <div className="about_desk">
@@ -20,7 +60,8 @@ function Aboutus({ data, currentLanguage }) {
               letterSpacing: "1.3px",
             }}
           >
-            {data && data.description[currentLanguage]}
+            {console.log("sdfsd", data, data.description, currentLanguage)}
+            {data && data.description[currentLanguage]}s
           </p>
         </div>
         <div className="divider-ver"></div>
@@ -43,7 +84,7 @@ function Aboutus({ data, currentLanguage }) {
               height={25}
               alt=""
             />
-            <p style={{ color: "gray" }}>: {data && data.phones}</p>
+            <p style={{ color: "gray" }}>: {data && data.phone}</p>
           </div>
           <div>
             <img
@@ -59,6 +100,7 @@ function Aboutus({ data, currentLanguage }) {
           </div>
         </div>
       </div>
+
       <div className="about_mobile">
         <img src={logo2} height={"60px"} alt="" />
         <p
@@ -69,35 +111,21 @@ function Aboutus({ data, currentLanguage }) {
             marginTop: 14,
           }}
         >
-          Empowering industries worldwide, Berk Ýigitler pioneers innovative
-          chemical solutions. With a commitment to excellence, we drive progress
-          and sustainability. Join us in shaping a brighter future through
-          chemistry.
+          {data && data.description[currentLanguage]}
         </p>
         <div className="divider"></div>
         <p style={{ color: "coral" }}>GMAIL</p>
         <p style={{ color: "gray", width: "85%", textAlign: "center" }}>
-          r.meredov@inbox.ru
+          {data && data.mail}
         </p>
         <p style={{ color: "#216FB4", marginTop: "20px" }}>PHONE</p>
-        <a href="tel:+99365644141">
-          {" "}
-          <p style={{ color: "gray", width: "85%", textAlign: "center" }}>
-            +99360186363
-          </p>
-        </a>
-        <a href="tel:+99365644141">
-          {" "}
-          <p style={{ color: "gray", width: "85%", textAlign: "center" }}>
-            +99365641141
-          </p>
-        </a>
-        <a href="tel:+99365644141">
-          {" "}
-          <p style={{ color: "gray", width: "85%", textAlign: "center" }}>
-            +993656717701
-          </p>
-        </a>
+        {data &&
+          data.phone.split(", ").map((phone) => (
+            <a href={`tel:%${phone}`}>
+              <p style={{ color: "gray", textAlign: "center" }}>{phone}</p>
+            </a>
+          ))}
+
         <p style={{ color: "#E93E3A", marginTop: "20px" }}>ADRESS</p>
         <p
           style={{
@@ -107,8 +135,7 @@ function Aboutus({ data, currentLanguage }) {
             marginBottom: "10px",
           }}
         >
-          Akhal velayat, Bugday etrap, industrial zone of OHJP named after M.
-          Sopyyew
+          {data && data.location[currentLanguage]}
         </p>
       </div>
     </>
