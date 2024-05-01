@@ -1,16 +1,19 @@
-import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import MapEmail from "./components_contact/MapEmail/MapEmail";
 import Aboutus from "./components/Aboutus/Aboutus";
 
 import call from "./assets/images//call.png";
 import whatsapp from "./assets/images/whatsapp.webp";
+
 function ContactPage({ setCurrentLanguage, currentLanguage }) {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <Navbar setCurrentLanguage={setCurrentLanguage}  currentLanguage={currentLanguage}/>
+      <Navbar
+        setCurrentLanguage={setCurrentLanguage}
+        currentLanguage={currentLanguage}
+      />
       <MapEmail currentLanguage={currentLanguage} />
       <a href="tel:+99365644141">
         <div
