@@ -13,7 +13,7 @@ const Create = () => {
     setLoading(true);
     const data = new FormData(e.target);
 
-    fetch(`${config.serverIP}:${config.serverPort}/language`, {
+    fetch(`${config.serverIP}/language`, {
       method: "POST",
       body: data,
     })

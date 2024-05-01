@@ -7,7 +7,7 @@ function Markets({ dataChange, currentLanguage }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/category?size=8`, {
+    fetch(`${config.serverIP}/category?size=8`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -61,7 +61,7 @@ function Markets({ dataChange, currentLanguage }) {
               <div className="flip-card-front" style={{ overflow: "hidden" }}>
                 <img
                   width={"100%"}
-                  src={`${config.serverIP}:${config.serverPort}/${d.image}`}
+                  src={`${config.serverIP}/${d.image}`}
                   alt=""
                 />
                 <div>{d && d.name[currentLanguage]}</div>

@@ -10,7 +10,7 @@ const Create = (ddd) => {
   const [lang, SetLang] = useState([]);
 
   const GetLanguage = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/language`, {
+    fetch(`${config.serverIP}/language`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -31,7 +31,7 @@ const Create = (ddd) => {
     e.preventDefault();
     setLoading(true);
     const data = new FormData(e.target);
-    fetch(`${config.serverIP}:${config.serverPort}/category`, {
+    fetch(`${config.serverIP}/category`, {
       method: "POST",
       body: data,
     })

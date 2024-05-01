@@ -12,7 +12,7 @@ function SwiperWel({ currentLanguage }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/category`, {
+    fetch(`${config.serverIP}/category`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -46,7 +46,7 @@ function SwiperWel({ currentLanguage }) {
         {data.map((d, i) => (
           <SwiperSlide key={i} className="swiper_slide">
             <img
-              src={`${config.serverIP}:${config.serverPort}/${d.image}`}
+              src={`${config.serverIP}/${d.image}`}
               alt=""
             />
             <div>

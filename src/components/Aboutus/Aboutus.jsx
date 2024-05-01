@@ -26,7 +26,7 @@ function Aboutus({ currentLanguage }) {
   });
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/main`, {
+    fetch(`${config.serverIP}/main`, {
       method: "GET",
     })
       .then(async (response) => {

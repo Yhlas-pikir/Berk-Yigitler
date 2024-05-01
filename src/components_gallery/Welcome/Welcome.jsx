@@ -14,7 +14,7 @@ function Welcome({ currentLanguage }) {
   const [data, SetData] = useState([]);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/gallery`, {
+    fetch(`${config.serverIP}/gallery`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -56,7 +56,7 @@ function Welcome({ currentLanguage }) {
                 <SwiperSlide key={index} className="section_slide">
                   <img
                     style={{ width:'100%',height:'100%',objectFit: "cover" , aspectRatio: "16/9" }}
-                    src={`${config.serverIP}:${config.serverPort}/${value.image}`}
+                    src={`${config.serverIP}/${value.image}`}
                     alt=""
                   />
                 </SwiperSlide>
@@ -85,7 +85,7 @@ function Welcome({ currentLanguage }) {
               {d.galleries.map((value, index) => (
                 <SwiperSlide key={index} className="section_slide">
                   <img
-                    src={`${config.serverIP}:${config.serverPort}/${value.image}`}
+                    src={`${config.serverIP}/${value.image}`}
                     style={{ width:'100%',height:'100%',objectFit: "cover" , aspectRatio: "16/9" }}
 
                     alt=""

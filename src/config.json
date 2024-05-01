@@ -1,5 +1,5 @@
 {
-  "serverIP": "http://216.250.9.97",
-  "serverIP2": "http://localhost",
-  "serverPort": 4000
+  "serverIP": "https://berkyigitler.com/api",
+  "serverIP2": "https://berkyigitler.com/api",
+  "serverPort": ""
 }

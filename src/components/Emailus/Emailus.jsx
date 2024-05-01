@@ -13,7 +13,7 @@ function Emailus({ data,currentLanguage }) {
     formData.forEach((value, key) => (data[key] = value));
 
 
-    fetch(`${config.serverIP}:${config.serverPort}/mail`, {
+    fetch(`${config.serverIP}/mail`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function Emailus({ data,currentLanguage }) {
     <div className="emailus_wrapper">
       <div className="emailus_image">
         <img
-          src={`${config.serverIP}:${config.serverPort}/${data && data.image}`}
+          src={`${config.serverIP}/${data && data.image}`}
           
           alt=""
         />

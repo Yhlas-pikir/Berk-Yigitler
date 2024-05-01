@@ -10,7 +10,7 @@ function All({ currentLanguage }) {
   const redirect = useNavigate();
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/category`, {
+    fetch(`${config.serverIP}/category`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -41,7 +41,7 @@ function All({ currentLanguage }) {
             <div className="all_element">
               <p style={{marginBottom:'20px'}}>{d && d.name[currentLanguage]}</p>
               <img
-                src={`${config.serverIP}:${config.serverPort}/${d.image}`}
+                src={`${config.serverIP}/${d.image}`}
                 alt=""
               />
             </div>

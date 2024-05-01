@@ -12,7 +12,7 @@ const Edit = () => {
   let [loading, setLoading] = useState(false);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/gallery/${id}`)
+    fetch(`${config.serverIP}/gallery/${id}`)
       .then((response) => {
         return response.json();
       })
@@ -22,7 +22,7 @@ const Edit = () => {
   };
 
   const GetData2 = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/category`, {
+    fetch(`${config.serverIP}/category`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -43,7 +43,7 @@ const Edit = () => {
 
     const data = new FormData(e.target);
 
-    fetch(`${config.serverIP}:${config.serverPort}/gallery/${id}`, {
+    fetch(`${config.serverIP}/gallery/${id}`, {
       method: "PUT",
       body: data,
     })

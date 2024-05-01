@@ -10,7 +10,7 @@ const Create = () => {
   const [lang, SetLang] = useState([]);
 
   const GetLanguage = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/language`, {
+    fetch(`${config.serverIP}/language`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -32,7 +32,7 @@ const Create = () => {
     setLoading(true);
 
     const data = new FormData(e.target);
-    fetch(`${config.serverIP}:${config.serverPort}/gallery`, {
+    fetch(`${config.serverIP}/gallery`, {
       method: "POST",
       body: data,
     })

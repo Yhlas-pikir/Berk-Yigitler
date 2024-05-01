@@ -9,7 +9,7 @@ const Edit = () => {
   const [data, setData] = useState({});
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/language/${id}`)
+    fetch(`${config.serverIP}/language/${id}`)
       .then((response) => {
         return response.json();
       })
@@ -27,7 +27,7 @@ const Edit = () => {
 
     const data = new FormData(e.target);
 
-    fetch(`${config.serverIP}:${config.serverPort}/language/${id}`, {
+    fetch(`${config.serverIP}/language/${id}`, {
       method: "PUT",
       body: data,
     })

@@ -7,7 +7,7 @@ const List = () => {
   const redirect = useNavigate();
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/category`, {
+    fetch(`${config.serverIP}/category`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -48,7 +48,7 @@ const List = () => {
                       <td>
                         <img
                           height={"60px"}
-                          src={`${config.serverIP}:${config.serverPort}/${row[col]}`}
+                          src={`${config.serverIP}/${row[col]}`}
                           alt=""
                         />
                       </td>
@@ -77,7 +77,7 @@ const List = () => {
                       // eslint-disable-next-line no-restricted-globals
                       if (confirm(`You have delete ${row.name}`)) {
                         fetch(
-                          `${config.serverIP}:${config.serverPort}/category/${row.id}`,
+                          `${config.serverIP}/category/${row.id}`,
                           {
                             method: "DELETE",
                           }

@@ -10,7 +10,7 @@ function ProductPage({ currentLanguage, setCurrentLanguage }) {
   const [data, SetData] = useState({});
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/main`, {
+    fetch(`${config.serverIP}/main`, {
       method: "GET",
     })
       .then(async (response) => {

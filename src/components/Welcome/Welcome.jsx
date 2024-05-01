@@ -8,7 +8,7 @@ function Welcome({ data, currentLanguage }) {
       <div className="welcome_wrapper" style={{}}>
         <div className="welcome_image" style={{flexDirection:1}} >
           <img
-            src={`${config.serverIP}:${config.serverPort}/${
+            src={`${config.serverIP}/${
               data && data.image
             }`}
             style={{aspectRatio:'17/9'}}

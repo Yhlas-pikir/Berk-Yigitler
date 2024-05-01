@@ -12,7 +12,7 @@ const Create = ({ currentLanguage }) => {
   const [lang, SetLang] = useState([]);
 
   const GetLanguage = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/language`, {
+    fetch(`${config.serverIP}/language`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -28,7 +28,7 @@ const Create = ({ currentLanguage }) => {
   }, []);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/category`, {
+    fetch(`${config.serverIP}/category`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -48,7 +48,7 @@ const Create = ({ currentLanguage }) => {
     setLoading(true);
     const data = new FormData(e.target);
 
-    fetch(`${config.serverIP}:${config.serverPort}/product`, {
+    fetch(`${config.serverIP}/product`, {
       method: "POST",
       body: data,
     })

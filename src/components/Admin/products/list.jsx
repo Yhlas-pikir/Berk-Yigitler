@@ -7,7 +7,7 @@ const List = ({ currentLanguage }) => {
   const redirect = useNavigate();
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/product?main=true`, {
+    fetch(`${config.serverIP}/product?main=true`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -61,7 +61,7 @@ const List = ({ currentLanguage }) => {
                       // eslint-disable-next-line no-restricted-globals
                       if (confirm(`You have delete ${row.name}`)) {
                         fetch(
-                          `${config.serverIP}:${config.serverPort}/product/${row.id}`,
+                          `${config.serverIP}/product/${row.id}`,
                           {
                             method: "DELETE",
                           }

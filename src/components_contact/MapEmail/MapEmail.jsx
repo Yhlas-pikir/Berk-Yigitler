@@ -12,7 +12,7 @@ function MapEmail({ currentLanguage }) {
     let data = {};
     formData.forEach((value, key) => (data[key] = value));
 
-    fetch(`${config.serverIP}:${config.serverPort}/mail`, {
+    fetch(`${config.serverIP}/mail`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

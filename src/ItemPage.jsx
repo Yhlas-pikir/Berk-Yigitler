@@ -15,7 +15,7 @@ function ItemPage({ setCurrentLanguage, currentLanguage }) {
   }, [])
   const GetData = () => {
     fetch(
-      `${config.serverIP}:${config.serverPort}/category/${id}?products=true`,
+      `${config.serverIP}/category/${id}?products=true`,
       {
         method: "GET",
       }
@@ -68,7 +68,7 @@ function ItemPage({ setCurrentLanguage, currentLanguage }) {
           </div>
           <img
             className="itemImage"
-            src={`${config.serverIP}:${config.serverPort}/${data.image}`}
+            src={`${config.serverIP}/${data.image}`}
             alt=""
           />
         </div>

@@ -9,7 +9,7 @@ const List = () => {
   let [loading, setLoading] = useState(false);
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/main`, {
+    fetch(`${config.serverIP}/main`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -31,7 +31,7 @@ const List = () => {
     const data = new FormData(e.target);
     data.append("type", e.target.action.split("/").pop());
 
-    fetch(`${config.serverIP}:${config.serverPort}/main`, {
+    fetch(`${config.serverIP}/main`, {
       method: "POST",
       body: data,
     })
