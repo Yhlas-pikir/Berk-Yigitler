@@ -10,26 +10,26 @@ import choose from "../../assets/images/choose.png";
 import { Link } from "react-router-dom";
 import locales from "../../locales.json"
 function Navbar({ currentLanguage, setCurrentLanguage }) {
-  console.log(locales,currentLanguage)
+  
   // setCurrentLanguage("tr");
 
   const [is, setIs] = useState(true);
   function ToggleHidden() {
-    console.log("asdasdasdasd", is);
+    
     is === true
       ? document.getElementById("hiddenmi").classList.add("show")
       : document.getElementById("hiddenmi").classList.remove("show");
     setIs(!is);
   }
   function ToggleHiddenM() {
-    console.log("asdasdasdasd", is);
+    
     is === true
       ? document.getElementById("hiddenmiM").classList.add("show")
       : document.getElementById("hiddenmiM").classList.remove("show");
     setIs(!is);
   }
   const location = useLocation();
-  console.log(location.pathname.startsWith("/products"));
+  
   return (
     <div className="navbar_wrapper">
       <div className="navbar_logo">

@@ -23,7 +23,7 @@ const Edit = () => {
   useEffect(() => {
     GetData();
   }, []);
-  console.log(data);
+
   const SendFrom = (e) => {
     e.preventDefault();
 

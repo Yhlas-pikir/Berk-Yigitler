@@ -18,7 +18,7 @@ const List = () => {
       });
   };
 
-  console.log(data);
+
 
   useEffect(() => {
     GetData();

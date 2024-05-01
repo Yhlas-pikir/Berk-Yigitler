@@ -20,6 +20,9 @@ function SwiperWel({ currentLanguage }) {
       })
       .then((response) => {
         SetData(response);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -45,17 +48,18 @@ function SwiperWel({ currentLanguage }) {
       >
         {data.map((d, i) => (
           <SwiperSlide key={i} className="swiper_slide">
-            <img
-              src={`${config.serverIP}/${d.image}`}
-              alt=""
-            />
+            <img src={`${config.serverIP}/${d.image}`} alt="" />
             <div>
               <p>{d && d.name[currentLanguage]}</p>
               {d && d.description[currentLanguage]}
-                <Link className="button" to={`/products/${d.id}`} style={{ color: "#fff" }}>
-                  {locales[currentLanguage||'tm']['Learn More']||'Learn More'}
-                   &#x25B6;
-                </Link>
+              <Link
+                className="button"
+                to={`/products/${d.id}`}
+                style={{ color: "#fff" }}
+              >
+                {locales[currentLanguage || "tm"]["Learn More"] || "Learn More"}
+                &#x25B6;
+              </Link>
             </div>
           </SwiperSlide>
         ))}

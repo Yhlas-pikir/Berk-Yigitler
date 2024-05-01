@@ -21,7 +21,7 @@ const Create = () => {
       });
   };
 
-  console.log(lang);
+
 
   useEffect(() => {
     GetLanguage();

@@ -46,7 +46,7 @@ function MapEmail({ currentLanguage }) {
   });
 
   const GetData = () => {
-    fetch(`${config.serverIP}:${config.serverPort}/main`, {
+    fetch(`${config.serverIP}/main`, {
       method: "GET",
     })
       .then(async (response) => {
@@ -62,7 +62,7 @@ function MapEmail({ currentLanguage }) {
     GetData();
   }, []);
 
-  console.log("contact", data, currentLanguage);
+  
 
   return (
     <div>

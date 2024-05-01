@@ -20,7 +20,10 @@ import LanguageList from "./components/Admin/Languages/list";
 import LanguageEdit from "./components/Admin/Languages/edit";
 
 import AdminMainList from "./components/Admin/main/main.jsx";
+
 import Contact from "./contactPage.jsx";
+
+import config from "./config.json";
 
 import ItemPage from "./ItemPage.jsx";
 import { useEffect, useState } from "react";
@@ -28,9 +31,30 @@ import { useEffect, useState } from "react";
 function App() {
   const [currentLanguage, setCurrentLanguage] = useState("tm");
   // const {pathname} = useLocation();
+
+  const [data, SetData] = useState({});
+  const GetData = () => {
+    fetch(`${config.serverIP}/main`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        SetData(response);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  console.log(data);
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    GetData();
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
@@ -38,6 +62,7 @@ function App() {
           path="/*"
           element={
             <Homepage
+              data={data}
               currentLanguage={currentLanguage}
               setCurrentLanguage={setCurrentLanguage}
             />
@@ -47,6 +72,7 @@ function App() {
           path="/products"
           element={
             <ProductPage
+              data={data}
               setCurrentLanguage={setCurrentLanguage}
               currentLanguage={currentLanguage}
             />
@@ -56,6 +82,7 @@ function App() {
           path="/products/:id"
           element={
             <ItemPage
+              data={data}
               setCurrentLanguage={setCurrentLanguage}
               currentLanguage={currentLanguage}
             />
@@ -65,6 +92,7 @@ function App() {
           path="/gallery"
           element={
             <GalleryPage
+              data={data}
               setCurrentLanguage={setCurrentLanguage}
               currentLanguage={currentLanguage}
             />
@@ -74,6 +102,7 @@ function App() {
           path="/contact"
           element={
             <Contact
+              data={data}
               setCurrentLanguage={setCurrentLanguage}
               currentLanguage={currentLanguage}
             />

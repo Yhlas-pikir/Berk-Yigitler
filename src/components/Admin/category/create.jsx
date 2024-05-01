@@ -25,7 +25,7 @@ const Create = (ddd) => {
     GetLanguage();
   }, []);
 
-  console.log(lang);
+
 
   const SendFrom = (e) => {
     e.preventDefault();

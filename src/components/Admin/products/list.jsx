@@ -22,7 +22,7 @@ const List = ({ currentLanguage }) => {
     GetData();
   }, []);
 
-  console.log(data);
+  
 
   return (
     <div>

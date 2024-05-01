@@ -5,42 +5,24 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import { useNavigate, useParams } from "react-router-dom";
 import config from "./config.json";
 import React, { useEffect, useState } from "react";
-function ItemPage({ setCurrentLanguage, currentLanguage }) {
+function ItemPage({ setCurrentLanguage, currentLanguage, data }) {
   const { id } = useParams();
 
-  const [data, SetData] = useState({});
-
   const redirect = useNavigate();
-  useEffect(() => {
-  }, [])
-  const GetData = () => {
-    fetch(
-      `${config.serverIP}/category/${id}?products=true`,
-      {
-        method: "GET",
-      }
-    )
-      .then(async (response) => {
-        return await response.json();
-      })
-      .then((response) => {
-        SetData(response);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  console.log(data);
+  useEffect(() => {}, []);
 
   useEffect(() => {
-    GetData();
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <Navbar currentLanguage={currentLanguage} setCurrentLanguage={setCurrentLanguage} />
+      <Navbar
+        currentLanguage={currentLanguage}
+        setCurrentLanguage={setCurrentLanguage}
+      />
       <div
         className="obshiy"
         style={{ width: "100%", display: "flex", justifyContent: "center" }}
@@ -74,7 +56,7 @@ function ItemPage({ setCurrentLanguage, currentLanguage }) {
         </div>
       </div>
       <Aboutus currentLanguage={currentLanguage} />
-      <a href="tel:+99365644141">
+      <a href={`tel:${data?.footer && data?.footer?.callPhone?.undefined}`}>
         <div
           className="fixedcall"
           style={{
@@ -95,13 +77,13 @@ function ItemPage({ setCurrentLanguage, currentLanguage }) {
           <img src={call} width={24} height={24} alt="" />
         </div>
       </a>
-      <a href="https://wa.me/99365644141">
+      <a href={data?.footer && data?.footer?.whatsUp?.undefined}>
         <img
           style={{
             height: 55,
             width: 55,
             position: "fixed",
-            bottom: 24,
+            bottom: 32,
             right: 10,
             zIndex: 999,
           }}

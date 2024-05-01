@@ -10,25 +10,7 @@ import Aboutus from "./components/Aboutus/Aboutus";
 import { useEffect, useState } from "react";
 import config from "./config.json";
 
-function Homepage({ currentLanguage, setCurrentLanguage }) {
-  const [data, SetData] = useState({});
-  const GetData = () => {
-    fetch(`${config.serverIP}/main`, {
-      method: "GET",
-    })
-    .then(async (response) => {
-      return await response.json();
-    })
-    .then((response) => {
-      SetData(response);
-    })
-    .catch((err) => console.log(err));
-  };
-  
-
-  useEffect(() => {
-    GetData();
-  }, []);
+function Homepage({ currentLanguage, setCurrentLanguage, data }) {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
@@ -42,7 +24,7 @@ function Homepage({ currentLanguage, setCurrentLanguage }) {
       <Markets dataChange={data.market} currentLanguage={currentLanguage} />
       <Emailus data={data.mail} currentLanguage={currentLanguage} />
       <MapPart data={data.map} currentLanguage={currentLanguage} />
-      <a href="tel:+99365644141">
+      <a href={`tel:${data?.footer && data?.footer?.callPhone?.undefined}`}>
         <div
           className="fixedcall"
           style={{
@@ -63,7 +45,7 @@ function Homepage({ currentLanguage, setCurrentLanguage }) {
           <img src={call} width={24} height={24} alt="" />
         </div>
       </a>
-      <a href="https://wa.me/99365644141">
+      <a href={data?.footer && data?.footer?.whatsUp?.undefined}>
         <img
           style={{
             height: 55,

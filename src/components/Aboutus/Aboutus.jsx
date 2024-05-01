@@ -5,6 +5,7 @@ import mail from "../../assets/images/mail.png";
 import loc from "../../assets/images/loc.png";
 
 import call from "../../assets/images/call.png";
+import whatsUpIcon from "../../assets/svg/whatsapp-glyph-black-logo-svgrepo-com.svg";
 import config from "../../config.json";
 
 import { useEffect, useState } from "react";
@@ -37,8 +38,6 @@ function Aboutus({ currentLanguage }) {
       })
       .catch((err) => console.log(err));
   };
-
-  console.log(data);
 
   useEffect(() => {
     GetData();
@@ -85,6 +84,23 @@ function Aboutus({ currentLanguage }) {
           </div>
           <div>
             <img
+              src={whatsUpIcon}
+              width={25}
+              style={{ marginRight: 4, filter: "invert(0.4)" }}
+              height={25}
+              alt=""
+            />
+            <p style={{ color: "gray" }}>
+              <a
+                style={{ color: "inherit" }}
+                href={data && data?.whatsUp?.undefined?.split("/").pop()}
+              >
+                : +{data && data?.whatsUp?.undefined?.split("/").pop()}
+              </a>
+            </p>
+          </div>
+          <div>
+            <img
               src={loc}
               width={35}
               style={{ marginRight: 4, filter: "invert(0.4)" }}
@@ -116,7 +132,9 @@ function Aboutus({ currentLanguage }) {
           {data && data?.mail?.undefined}
         </p>
         <p style={{ color: "#216FB4", marginTop: "20px" }}>PHONE</p>
-              <p style={{ color: "gray", textAlign: "center" }}>{data?.phone?.undefined}</p>
+        <p style={{ color: "gray", textAlign: "center" }}>
+          {data?.phone?.undefined}
+        </p>
 
         <p style={{ color: "#E93E3A", marginTop: "20px" }}>ADRESS</p>
         <p

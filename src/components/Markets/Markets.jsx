@@ -15,6 +15,9 @@ function Markets({ dataChange, currentLanguage }) {
       })
       .then((response) => {
         SetData(response);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -22,7 +25,7 @@ function Markets({ dataChange, currentLanguage }) {
     GetData();
   }, []);
 
-  console.log(data);
+  
 
   function rotate(id) {
     if (window.screen.width < 768) {
@@ -69,13 +72,16 @@ function Markets({ dataChange, currentLanguage }) {
               <div className="flip-card-back">
                 <h3> {d && d.name[currentLanguage]}</h3>
                 <p>{d.description[currentLanguage]}</p>
-                
-                <Link className="buttons" to={`/products/${d.id}`} style={{ color: "#fff" }}>
-                  {locales[currentLanguage||'tm']['Learn More']||'Learn More'}
-                   &#x25B6;
+
+                <Link
+                  className="buttons"
+                  to={`/products/${d.id}`}
+                  style={{ color: "#fff" }}
+                >
+                  {locales[currentLanguage || "tm"]["Learn More"] ||
+                    "Learn More"}
+                  &#x25B6;
                 </Link>
-                  
-                
               </div>
             </div>
           </div>

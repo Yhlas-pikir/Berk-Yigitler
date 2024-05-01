@@ -5,7 +5,7 @@ import Welcome from "./components_gallery/Welcome/Welcome";
 import call from "./assets/images//call.png";
 import whatsapp from "./assets/images/whatsapp.webp";
 
-function GalleryPage({ currentLanguage, setCurrentLanguage }) {
+function GalleryPage({ currentLanguage, setCurrentLanguage, data }) {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
@@ -16,7 +16,7 @@ function GalleryPage({ currentLanguage, setCurrentLanguage }) {
       />
       <Welcome currentLanguage={currentLanguage} />
       <Aboutus currentLanguage={currentLanguage} />
-      <a href="tel:+99365644141">
+      <a href={`tel:${data?.footer && data?.footer?.callPhone?.undefined}`}>
         <div
           className="fixedcall"
           style={{
@@ -37,13 +37,13 @@ function GalleryPage({ currentLanguage, setCurrentLanguage }) {
           <img src={call} width={24} height={24} alt="" />
         </div>
       </a>
-      <a href="https://wa.me/99365644141">
+      <a href={data?.footer && data?.footer?.whatsUp?.undefined}>
         <img
           style={{
             height: 55,
             width: 55,
             position: "fixed",
-            bottom: 24,
+            bottom: 32,
             right: 10,
             zIndex: 999,
           }}

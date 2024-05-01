@@ -26,7 +26,7 @@ function All({ currentLanguage }) {
     GetData();
   }, []);
 
-  console.log(data);
+  
 
   return (
     <>

@@ -3,28 +3,11 @@ import call from "./assets/images//call.png";
 import whatsapp from "./assets/images/whatsapp.webp";
 import Aboutus from "./components/Aboutus/Aboutus";
 import All from "./components_products/All/All";
+import whatsUp from "./assets/svg/whatsapp-glyph-black-logo-svgrepo-com.svg";
 import { useEffect, useState } from "react";
 import config from "./config.json";
 
-function ProductPage({ currentLanguage, setCurrentLanguage }) {
-  const [data, SetData] = useState({});
-
-  const GetData = () => {
-    fetch(`${config.serverIP}/main`, {
-      method: "GET",
-    })
-      .then(async (response) => {
-        return await response.json();
-      })
-      .then((response) => {
-        SetData(response);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    GetData();
-  }, []);
+function ProductPage({ currentLanguage, setCurrentLanguage, data }) {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
@@ -35,7 +18,7 @@ function ProductPage({ currentLanguage, setCurrentLanguage }) {
       />
       <All currentLanguage={currentLanguage} />
       <Aboutus data={data.footer} currentLanguage={currentLanguage} />
-      <a href="tel:+99365644141">
+      <a href={`tel:${data?.footer && data?.footer?.callPhone?.undefined}`}>
         <div
           className="fixedcall"
           style={{
@@ -56,13 +39,13 @@ function ProductPage({ currentLanguage, setCurrentLanguage }) {
           <img src={call} width={24} height={24} alt="" />
         </div>
       </a>
-      <a href="https://wa.me/99365644141">
+      <a href={data?.footer && data?.footer?.whatsUp?.undefined}>
         <img
           style={{
             height: 55,
             width: 55,
             position: "fixed",
-            bottom: 24,
+            bottom: 32,
             right: 10,
             zIndex: 999,
           }}

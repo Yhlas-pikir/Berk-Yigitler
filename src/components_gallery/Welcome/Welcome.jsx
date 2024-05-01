@@ -25,13 +25,13 @@ function Welcome({ currentLanguage }) {
       });
   };
 
-  console.log(data);
+  
 
   useEffect(() => {
     GetData();
   }, []);
 
-  console.log(currentLanguage);
+  
 
   return (
     <>
