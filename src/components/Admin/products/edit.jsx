@@ -10,7 +10,7 @@ const Edit = () => {
   const [data2, SetData2] = useState([]);
 
   const GetData = () => {
-    fetch(`${config.serverIP}/product/${id}`)
+    fetch(`${config.serverIP}/product/${id}?main=true`)
       .then((response) => {
         return response.json();
       })
@@ -34,6 +34,7 @@ const Edit = () => {
   useEffect(() => {
     GetData();
     GetData2();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const SendFrom = (e) => {
@@ -56,61 +57,74 @@ const Edit = () => {
       });
   };
 
-  return (
-    <div className="container">
-      <form onSubmit={SendFrom}>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="fname">Name</label>
-          </div>
-          <div className="col-75">
-            <input
-              type="text"
-              id="fname"
-              defaultValue={data.name}
-              name="name"
-            />
-          </div>
-        </div>
+  const [lang, SetLang] = useState([]);
 
-        {/* 
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
+  const GetLanguage = () => {
+    fetch(`${config.serverIP}/language`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        SetLang(response);
+      });
+  };
 
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Category</label>
+  useEffect(() => {
+    GetLanguage();
+  }, []);
+
+
+
+  if (data && data2) {
+    return (
+      <div className="container">
+        <form onSubmit={SendFrom}>
+          {lang &&
+            lang.map((l,i) => (
+              <div key={i} className="row">
+                <h1>{l.name}</h1>
+                <div className="col-25">
+                  <label htmlFor="fname">Name</label>
+                </div>
+                <div className="col-75">
+                  <input
+                    type="text"
+                    className="adtext"
+                    id="fname"
+                    defaultValue={data.name[l.code]}
+                    name={l.id + "_name"}
+                  />
+                </div>
+              </div>
+            ))}
+
+          <div className="row">
+            <div className="col-25">
+              <label htmlFor="country">Category</label>
+            </div>
+            <div className="col-75">
+              <select id="country" name="categoryId">
+                {data2 &&
+                  data2.map((d, i) => {
+                    return (
+                      <option key={i} value={d.id}>
+                        {Object.values(d.name).shift()}
+                      </option>
+                    );
+                  })}
+              </select>
+            </div>
           </div>
-          <div className="col-75">
-            <select id="country" name="categoryId">
-              {data2.map((d) => {
-                if (d.id === data.categoryId) {
-                  return <option value={d.id}>{d.name}</option>;
-                } else {
-                  return <option value={d.id}>{d.name}</option>;
-                }
-              })}
-            </select>
+          <br />
+          <div className="row">
+            <input type="submit" />
           </div>
-        </div>
-        <br />
-        <div className="row">
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
+        </form>
+      </div>
+    );
+  }
 };
 
 export default Edit;

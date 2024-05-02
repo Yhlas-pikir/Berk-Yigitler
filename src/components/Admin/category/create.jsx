@@ -25,8 +25,6 @@ const Create = (ddd) => {
     GetLanguage();
   }, []);
 
-
-
   const SendFrom = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -106,34 +104,10 @@ const Create = (ddd) => {
             />
           </div>
         </div>
-        {/* <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="country">
-              <option value="australia">Australia</option>
-              <option value="canada">Canada</option>
-              <option value="usa">USA</option>
-            </select>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
+
         <br />
         <div className="row">
-          <input type="submit" />
+          <input className="submitButton" type="submit" />
         </div>
       </form>
     </div>

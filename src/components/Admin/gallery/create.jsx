@@ -52,8 +52,8 @@ const Create = () => {
     <div className="container">
       <Loading value={loading} />
       <form onSubmit={SendFrom}>
-        {lang.map((l) => (
-          <div className="row">
+        {lang.map((l,i) => (
+          <div key={i} className="row">
             <h1>{l.name}</h1>
             <div className="col-25">
               <label htmlFor="fname">Name</label>

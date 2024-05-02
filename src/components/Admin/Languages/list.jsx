@@ -25,35 +25,35 @@ const List = () => {
   return (
     <div>
       <div style={{ display: "flex" }}>
-        <Link className="create-button" to={"/admin/language/create"}>
+        {/* <Link className="create-button" to={"/admin/language/create"}>
           Create
-        </Link>
+        </Link> */}
       </div>
       <table id="customers">
         <tbody>
           <tr>
             {!!data &&
               !!data[0] &&
-              Object.keys(data[0]).map((key) => {
+              Object.keys(data[0]).map((key,i) => {
                 if (key !== "categoryId") {
-                  return <th>{key}</th>;
+                  return <th key={i}>{key}</th>;
                 }
               })}
             <th></th>
           </tr>
           {!!data &&
-            data.map((row) => (
-              <tr>
-                {Object.keys(row).map((col) => {
+            data.map((row,i) => (
+              <tr key={i}>
+                {Object.keys(row).map((col,i) => {
                   if (col === "category") {
-                    return <td>{row[col] && row[col].name}</td>;
+                    return <td key={i}>{row[col] && row[col].name}</td>;
                   } else if (col === "categoryId") {
                   } else {
-                    return <td>{row[col]}</td>;
+                    return <td key={i}>{row[col]}</td>;
                   }
                 })}
                 <td style={{ cursor: "pointer" }}>
-                  <button
+                  {/* <button
                     className="delete-button"
                     onClick={() => {
                       // eslint-disable-next-line no-restricted-globals
@@ -70,7 +70,7 @@ const List = () => {
                     type="button"
                   >
                     Delete
-                  </button>
+                  </button> */}
                   <button
                     type="button"
                     className="edit-button"

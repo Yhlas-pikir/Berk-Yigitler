@@ -19,7 +19,6 @@ const List = () => {
   };
 
 
-
   useEffect(() => {
     GetData();
   }, []);
@@ -36,12 +35,16 @@ const List = () => {
           <tr>
             {!!data &&
               !!data[0] &&
-              Object.keys(data[0]).map((Key, i) => <th key={i}>{Key}</th>)}
+              Object.keys(data[0]).map((Key, i) => {
+                if(Key!=='languageId' && Key!=='galleryCategoryId'){
+                  return <th key={i}>{Key}</th>
+                }
+                })}
             <th></th>
           </tr>
           {!!data &&
-            data.map((row) => (
-              <tr>
+            data.map((row,i) => (
+              <tr key={i}>
                 {Object.keys(row).map((col, i) => {
                   if (col === "galleries") {
                     return (
@@ -69,17 +72,21 @@ const List = () => {
                   } else if (col === "name") {
                     return (
                       <td key={i} style={{ overflow: "auto" }}>
-                        {Object.keys(row[col]).map((rc) => (
-                          <div>{rc} {row[col][rc]}</div>
+                        {Object.keys(row[col]).map((rc,i) => (
+                          <div key={i}>
+                            {rc} {row[col][rc]}
+                          </div>
                         ))}
                       </td>
                     );
                   } else {
-                    <td key={i} style={{ overflow: "auto" }}>
-                      {Object.keys(row[col]).map((rc) => {
-                        <div>{rc}</div>;
-                      })}
-                    </td>;
+                    if (typeof row[col] == "string" || typeof row[col] == "number"  ) {
+                      return (
+                        <td key={i} style={{ overflow: "auto" }}>
+                          {row[col]}
+                        </td>
+                      );
+                    }
                   }
                 })}
                 <td style={{ cursor: "pointer" }}>
@@ -88,12 +95,9 @@ const List = () => {
                     onClick={() => {
                       // eslint-disable-next-line no-restricted-globals
                       if (confirm(`You have delete ${row.name}`)) {
-                        fetch(
-                          `${config.serverIP}/gallery/${row.id}`,
-                          {
-                            method: "DELETE",
-                          }
-                        ).then(() => {
+                        fetch(`${config.serverIP}/gallery/${row.id}`, {
+                          method: "DELETE",
+                        }).then(() => {
                           window.location.reload();
                         });
                       }

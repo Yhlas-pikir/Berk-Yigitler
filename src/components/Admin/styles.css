@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #1c2e41;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -20,13 +20,15 @@
 }
 .sidebar > div > a > img {
   width: 160px;
+  background-color: white;
+  padding: 5px;
 }
 
 /* Sidebar links */
 .sidebar a {
   display: block;
-  color: black;
-  padding: 16px;
+  color: white;
+  padding: 11px;
   text-decoration: none;
   text-transform: capitalize;
   font-size: larger;
@@ -40,14 +42,13 @@
 
 /* Links on mouse-over */
 .sidebar > a:hover:not(.active) {
-  background-color: #555;
+  background-color: #304964;
   color: white;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
+  padding-left: 200px;
   height: 1000px;
 }
 
@@ -213,7 +214,7 @@ label {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  overflow-x: scroll;
+  padding: 10px;
 }
 
 .loading {
@@ -261,3 +262,43 @@ label {
   background: white;
   border-radius: 100%;
 } */
+
+.hidden {
+  display: none;
+}
+
+.adminMainContent {
+}
+
+.adminCategory {
+  display: flex;
+  gap: 10px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.adminCategoryButton {
+  width: 100px;
+  height: 30px;
+  font-size: larger;
+  font-weight: 500;
+  border: none;
+  background-color: #d2cdcd;
+  border-radius: 3%;
+}
+
+.adminCategoryButton:hover {
+  background-color: #e6e5e5;
+}
+
+.submitButton {
+  width: 100px;
+  height: 35px;
+  background-color: #08e626;
+  border-radius: 7px;
+  border-style: none;
+}
+
+.submitButton:hover{
+  background-color: #05a51b;
+}

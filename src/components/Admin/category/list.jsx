@@ -22,8 +22,6 @@ const List = () => {
     GetData();
   }, []);
 
-
-
   return (
     <div>
       <div style={{ display: "flex" }}>
@@ -36,16 +34,16 @@ const List = () => {
           <tr>
             {!!data &&
               !!data[0] &&
-              Object.keys(data[0]).map((key) => <th>{key}</th>)}
+              Object.keys(data[0]).map((key, i) => <th key={i}>{key}</th>)}
             <th></th>
           </tr>
           {!!data &&
-            data.map((row) => (
-              <tr>
-                {Object.keys(row).map((col) => {
+            data.map((row, i) => (
+              <tr key={i}>
+                {Object.keys(row).map((col, i) => {
                   if (col === "image") {
                     return (
-                      <td>
+                      <td key={i}>
                         <img
                           height={"60px"}
                           src={`${config.serverIP}/${row[col]}`}
@@ -53,11 +51,13 @@ const List = () => {
                         />
                       </td>
                     );
+                  } else if (col == "id") {
+                    return <td key={i}>{row[col]}</td>;
                   } else {
                     return (
-                      <td>
-                        {Object.keys(row[col]).map((key) => (
-                          <table>
+                      <td key={i}>
+                        {Object.keys(row[col]).map((key, i) => (
+                          <table key={i}>
                             <tbody>
                               <tr>
                                 <td>{key}</td>
@@ -76,12 +76,9 @@ const List = () => {
                     onClick={() => {
                       // eslint-disable-next-line no-restricted-globals
                       if (confirm(`You have delete ${row.name}`)) {
-                        fetch(
-                          `${config.serverIP}/category/${row.id}`,
-                          {
-                            method: "DELETE",
-                          }
-                        ).then((response) => {
+                        fetch(`${config.serverIP}/category/${row.id}`, {
+                          method: "DELETE",
+                        }).then((response) => {
                           window.location.reload();
                         });
                       }
@@ -94,7 +91,7 @@ const List = () => {
                     type="button"
                     className="edit-button"
                     onClick={() => {
-                      // redirect(`/admin/category/${row.id}`);
+                      redirect(`/admin/category/${row.id}`);
                     }}
                   >
                     Edit

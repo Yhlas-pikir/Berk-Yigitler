@@ -68,8 +68,8 @@ const Create = ({ currentLanguage }) => {
     <div className="container">
       <Loading value={loading} />
       <form onSubmit={SendFrom}>
-        {lang.map((l) => (
-          <div className="row">
+        {lang.map((l,i) => (
+          <div key={i} className="row">
             <h1>{l.name}</h1>
             <div className="col-25">
               <label htmlFor="fname">Name</label>
@@ -91,8 +91,8 @@ const Create = ({ currentLanguage }) => {
           </div>
           <div className="col-75">
             <select id="country" name="categoryId">
-              {data.map((d) => (
-                <option value={d.id}>{d && d.name[currentLanguage]}</option>
+              {data.map((d,i) => (
+                <option key={i} value={d.id}>{d && d.name[currentLanguage]}</option>
               ))}
             </select>
           </div>

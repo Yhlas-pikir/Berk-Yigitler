@@ -22,74 +22,83 @@ const List = ({ currentLanguage }) => {
     GetData();
   }, []);
 
-  
-
-  return (
-    <div>
-      <div style={{ display: "flex" }}>
-        <Link className="create-button" to={"/admin/product/create"}>
-          Create
-        </Link>
-      </div>
-      <table id="customers">
-        <tbody>
-          <tr>
-            {!!data &&
-              !!data[0] &&
-              Object.keys(data[0]).map((key) => {
-                if (key !== "categoryId") {
-                  return <th>{key}</th>;
-                }
-              })}
-            <th></th>
-          </tr>
-          {!!data &&
-            data.map((row) => (
-              <tr>
-                {Object.keys(row).map((col) => {
-                  if (col === "category") {
-                    return <td>{row[col] && row[col].name}</td>;
-                  } else if (col === "categoryId") {
-                  } else {
-                    return <td>{row[col]}</td>;
+  if (data) {
+    return (
+      <div>
+        <div style={{ display: "flex" }}>
+          <Link className="create-button" to={"/admin/product/create"}>
+            Create
+          </Link>
+        </div>
+        <table id="customers">
+          <tbody>
+            <tr>
+              {!!data &&
+                !!data[0] &&
+                Object.keys(data[0]).map((key, i) => {
+                  if (key !== "categoryId") {
+                    return <th key={i}>{key}</th>;
                   }
                 })}
-                <td style={{ cursor: "pointer" }}>
-                  <button
-                    className="delete-button"
-                    onClick={() => {
-                      // eslint-disable-next-line no-restricted-globals
-                      if (confirm(`You have delete ${row.name}`)) {
-                        fetch(
-                          `${config.serverIP}/product/${row.id}`,
-                          {
+              <th></th>
+            </tr>
+            {!!data &&
+              data.map((row, i) => (
+                <tr key={i}>
+                  {Object.keys(row).map((col, i) => {
+                    if (col === "category") {
+                      return (
+                        <td key={i}>
+                          {row[col] && row[col].categoryTranslates.shift().name}
+                        </td>
+                      );
+                    } else if (col === "categoryId") {
+                    } else if (col === "productTranslates") {
+                      return (
+                        <td key={i}>
+                          {row[col].map((trans, i) => (
+                            <div key={i}>{trans.name}</div>
+                          ))}
+                        </td>
+                      );
+                    } else {
+                      return <td key={i}>{row[col]}</td>;
+                    }
+                  })}
+                  <td style={{ cursor: "pointer" }}>
+                    <button
+                      className="delete-button"
+                      onClick={() => {
+                        // eslint-disable-next-line no-restricted-globals
+                        if (confirm(`You have delete ${row.name}`)) {
+                          fetch(`${config.serverIP}/product/${row.id}`, {
                             method: "DELETE",
-                          }
-                        ).then((response) => {
-                          window.location.reload();
-                        });
-                      }
-                    }}
-                    type="button"
-                  >
-                    Delete
-                  </button>
-                  <button
-                    type="button"
-                    className="edit-button"
-                    onClick={() => {
-                      // redirect(`/admin/product/${row.id}`);
-                    }}
-                  >
-                    Edit
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </div>
-  );
+                          }).then((response) => {
+                            window.location.reload();
+                          });
+                        }
+                      }}
+                      type="button"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      type="button"
+                      className="edit-button"
+                      onClick={() => {
+                        redirect(`/admin/product/${row.id}`);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 };
 
 export default List;

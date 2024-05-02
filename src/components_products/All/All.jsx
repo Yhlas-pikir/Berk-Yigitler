@@ -36,8 +36,8 @@ function All({ currentLanguage }) {
       
       </h1>
       <div className="all_wrapper">
-        {data.map((d) => (
-          <Link to={`/products/${d.id}`} style={{ color: "#000" }}>
+        {data.map((d,i) => (
+          <Link key={i} to={`/products/${d.id}`} style={{ color: "#000" }}>
             <div className="all_element">
               <p style={{marginBottom:'20px'}}>{d && d.name[currentLanguage]}</p>
               <img

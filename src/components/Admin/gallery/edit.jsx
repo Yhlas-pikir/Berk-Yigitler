@@ -8,7 +8,6 @@ const Edit = () => {
   const params = useParams();
   const id = params.id;
   const [data, setData] = useState({});
-  const [data2, SetData2] = useState([]);
   let [loading, setLoading] = useState(false);
 
   const GetData = () => {
@@ -21,21 +20,8 @@ const Edit = () => {
       });
   };
 
-  const GetData2 = () => {
-    fetch(`${config.serverIP}/category`, {
-      method: "GET",
-    })
-      .then(async (response) => {
-        return await response.json();
-      })
-      .then((response) => {
-        SetData2(response);
-      });
-  };
-
   useEffect(() => {
     GetData();
-    GetData2();
   }, []);
 
   const SendFrom = (e) => {
@@ -59,39 +45,58 @@ const Edit = () => {
     setLoading(false);
   };
 
+  
+
+  const [lang, SetLang] = useState([]);
+
+  const GetLanguage = () => {
+    fetch(`${config.serverIP}/language`, {
+      method: "GET",
+    })
+      .then(async (response) => {
+        return await response.json();
+      })
+      .then((response) => {
+        SetLang(response);
+      });
+  };
+
+  useEffect(() => {
+    GetLanguage();
+  }, []);
+
   return (
     <div className="container">
       <Loading value={loading} />
 
       <form onSubmit={SendFrom}>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="fname">Name</label>
-          </div>
-          <div className="col-75">
-            <input
-              type="text"
-              id="fname"
-              defaultValue={data && data.name}
-              name="name"
-            />
-          </div>
-        </div>
-
-        {/* 
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
-          </div>
-          <div className="col-75">
-            <textarea
-              id="subject"
-              name="subject"
-              placeholder="Write something.."
-              style={{ height: "200px" }}
-            ></textarea>
-          </div>
-        </div> */}
+        {lang &&
+          lang.map((l,i) => (
+            <div
+              style={{
+                border: "1px solid black",
+                padding: "10px",
+                margin: "2px",
+                borderRadius: "5Fpx",
+              }}
+              key={i}
+            >
+              <h3>{l.name}</h3>
+              <div className="row">
+                <div className="col-25">
+                  <label htmlFor="fname">Name</label>
+                </div>
+                <div className="col-75">
+                  <input
+                    type="text"
+                    id="fname"
+                    defaultValue={data && data?.name[l.code]}
+                    name={l.id + "_name"}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
         <div className="row">
           <div className="col-25">
             <label htmlFor="limage">Image</label>
@@ -103,10 +108,11 @@ const Edit = () => {
               id="limage"
               multiple
               name="image"
-            s/>
+              
+            />
           </div>
         </div>
-        
+
         <div className="row">
           <input type="submit" />
         </div>
