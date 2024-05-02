@@ -6,6 +6,7 @@ import loc from "../../assets/images/loc.png";
 
 import call from "../../assets/images/call.png";
 import whatsUpIcon from "../../assets/svg/whatsapp-glyph-black-logo-svgrepo-com.svg";
+import telegram from "../../assets/svg/telegram.png";
 import config from "../../config.json";
 
 import { useEffect, useState } from "react";
@@ -82,6 +83,7 @@ function Aboutus({ currentLanguage }) {
             />
             <p style={{ color: "gray" }}>: {data && data?.phone?.undefined}</p>
           </div>
+          
           <div>
             <img
               src={whatsUpIcon}
@@ -93,7 +95,24 @@ function Aboutus({ currentLanguage }) {
             <p style={{ color: "gray" }}>
               <a
                 style={{ color: "inherit" }}
-                href={data && data?.whatsUp?.undefined?.split("/").pop()}
+                href={data && data?.whatsUp?.undefined}
+              >
+                : +{data && data?.whatsUp?.undefined?.split("/").pop()}
+              </a>
+            </p>
+          </div>
+          <div>
+            <img
+              src={telegram}
+              width={25}
+              style={{ marginRight: 4, filter: "invert(0.4)" }}
+              height={25}
+              alt=""
+            />
+            <p style={{ color: "gray" }}>
+              <a
+                style={{ color: "inherit" }}
+                href={'https://t.me/'+(data && data?.whatsUp?.undefined?.split("/").pop())}
               >
                 : +{data && data?.whatsUp?.undefined?.split("/").pop()}
               </a>
