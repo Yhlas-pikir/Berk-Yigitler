@@ -154,8 +154,25 @@ function Aboutus({ currentLanguage }) {
         <p style={{ color: "gray", textAlign: "center" }}>
           {data?.phone?.undefined}
         </p>
-
-        <p style={{ color: "#E93E3A", marginTop: "20px" }}>ADRESS</p>
+        {/* telegram */}
+        <div style={{display:"flex", alignItems:"center",marginTop:"15px"}}>
+            <img
+              src={telegram}
+              width={25}
+              style={{ marginRight: 4, filter: "invert(0.4)" }}
+              height={25}
+              alt=""
+            />
+            <p style={{ color: "gray" }}>
+              <a
+                style={{ color: "inherit",textAlign:"center" }}
+                href={'https://t.me/'+(data && data?.whatsUp?.undefined?.split("/").pop())}
+              >
+                : +{data && data?.whatsUp?.undefined?.split("/").pop()}
+              </a>
+            </p>
+          </div>
+        <p style={{ color: "#E93E3A", marginTop: "20px" }}>ADDRESS</p>
         <p
           style={{
             color: "gray",

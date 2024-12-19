@@ -29,7 +29,7 @@ import ItemPage from "./ItemPage.jsx";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [currentLanguage, setCurrentLanguage] = useState("tm");
+  const [currentLanguage, setCurrentLanguage] = useState("en");
   // const {pathname} = useLocation();
 
   const [data, SetData] = useState({});

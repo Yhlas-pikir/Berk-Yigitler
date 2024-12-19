@@ -11,7 +11,7 @@
 .obshiy{
   display: flex;
   align-items: center;
-  height: 80vh;
+  height: 100%;
 }
 .itemImage{
     aspect-ratio: 16/9;

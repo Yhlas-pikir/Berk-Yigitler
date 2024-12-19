@@ -8,10 +8,16 @@
 }
 
 .all_element{
+    justify-content: space-between;
+    height: 100%;
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 .all_element > p {
     font-size: xx-large;
